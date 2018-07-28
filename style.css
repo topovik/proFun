@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+html,
+body,
+.container,
+.pageContainerNeedSee,
+.pageSearchArticles {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.MainSlider {
+    grid-area: slider;
+    background-size: contain;
+    text-align: center;
+    justify-items: center;
+}
+
+.MainSlider img {
+    width: 24.3vw;
+}
+
+.header {
+    grid-area: header;
+    position: sticky;
+    overflow: hidden;
+    opacity: .9;
+    top: .1px;
+    z-index: 105;
+    background: #5c5c5c;
+    box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+}
+
+.main {
+    grid-area: main;
+    box-shadow: 0 0 12px 0 #ccc;
+}
+
+.article:nth-child(odd) {
+    grid-area: mainDivOdd;
+}
+
+.article:nth-child(even) {
+    grid-area: mainDivEven;
+}
+
+.articleTitle {
+    position: absolute;
+    text-align: left;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.267);
+}
+
+.articleTitle h3 {
+    padding-bottom: 10%;
+    margin: 0 0 0 5px;
+    font-weight: 600;
+}
+
+.articleTitle h4 {
+    padding-bottom: 10%;
+    margin: 0 0 0 7px;
+}
+
+.articleCount {
+    font-weight: 700;
+}
+
+.articleIcon {
+    font-size: .8em;
+    margin: 0 5px 0 10px;
+}
+
+.articleSlider span {
+    position: relative;
+    bottom: 7px;
+}
+
+.articleSlider {
+    cursor: pointer;
+}
+
+.articleSlider:hover > .articleImg {
+    opacity: .9;
+    border-bottom: 2px solid black;
+}
+
+.articleContainer {
+    display: grid;
+    position: relative;
+    margin-top: 4vh;
+    cursor: pointer;
+}
+
+.articleContainer:hover > .articleTitle {
+    background: #14141496;
+    color: white;
+}
+
+.article img {
+    width: 30vw;
+}
+
+.aside {
+    grid-area: sidebar;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 0 0 12px 0 #ccc;
+    background: rgb(92, 92, 92);
+}
+
+.articleAside {
+    position: relative;
+    border-bottom: .5px solid white;
+    border-top: .5px solid white;
+    cursor: pointer;
+}
+
+.articleAside:hover {
+    background: #ffffff54;
+}
+
+.aside img {
+    width: 25vw;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.container {
+    display: grid;
+    grid-column-gap: 2%;
+    grid-row-gap: 3vh;
+    grid-template-columns: 1fr 67% 27% 1fr;
+    grid-template-rows: 15vh auto auto 20vh;
+    grid-template-areas: 
+    "header header header header" 
+    "slider slider slider slider" 
+    ". main sidebar ." 
+    ". footer footer ."
+}
+
+.article {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "mainDivOdd mainDivEven"
+}
+
+/*Article Page*/
+
+.pageMain {
+    grid-area: pageMain;
+    box-shadow: 0 0 12px 0 #ccc;
+    text-align: justify;
+}
+
+.pageArticle img {
+    width: 50vw;
+}
+
+.pageArticle div {
+    margin: 0 2%;
+}
+
+.SliderNeedSee {
+    grid-area: sliderNeedSee;
+    text-align: center;
+    justify-items: center;
+}
+
+.SliderNeedSee img {
+    width: 22vw;
+}
+
+.pageContainerNeedSee {
+    display: grid;
+    grid-column-gap: 2%;
+    grid-row-gap: 3vh;
+    grid-template-columns: 1fr 67% 27% 1fr;
+    grid-template-rows: 15vh auto auto 20vh;
+    grid-template-areas:
+    "header header header header"
+    ". pageMain sidebar ."
+    ". sliderNeedSee sidebar ."
+    ". footer footer ."
+}
+
+/*SearchForm*/
+
+.SearchForm {
+    grid-area: search;
+}
+
+.inputForm {
+    border: 2px solid #4a4a4a;
+    text-align: left;
+    border-radius: 25px 25px 25px 25px;
+    overflow: hidden;
+    width: 23vw;
+    height: 5vh;
+    background: #5c5c5c;
+    font-size: 17px;
+    padding: 0 0 0 15px;
+    outline: none;
+    color: rgb(63, 63, 63);
+    box-shadow: inset 0 1px 8px #000;
+}
+
+.buttonForm {
+    color: grey;
+    cursor: pointer;
+    position: absolute;
+    left: 56.5%;
+    background: transparent;
+    border: none;
+}
+
+.inputForm:hover {
+    background: rgb(95, 95, 95);
+}
+
+.buttonForm:hover {
+    color: rgba(255, 255, 255, 0.63);
+}
+
+.header img {
+    grid-area: logo;
+    width: 15vw;
+    margin-left: 15%;
+}
+
+.Social {
+    grid-area: social;
+}
+
+.Weather {
+    grid-area: weather;
+    position: relative;
+    opacity: 1;
+    transition: ease 1s;
+}
+
+.Weather img {
+    position: absolute;
+    width: 5vw;
+    right: 13%;
+    bottom: -25%;
+}
+
+.Weather p {
+    font-size: 20px;
+    position: relative;
+    top: -23%;
+    left: 3%;
+    color: #1b1b1b;
+    font-weight: 500;
+}
+
+.Weather span {
+    position: absolute;
+    font-size: 30px;
+    top: 40%;
+    left: 23%;
+    font-weight: 700;
+    color: white;
+}
+
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 35% 25% 22% 18%;
+    grid-template-areas:
+    "logo search social weather"
+}
+
+/*Social*/
+
+.youtube {
+    grid-area: youtube;
+}
+
+.twitter {
+    grid-area: twitter;
+}
+
+.instagram {
+    grid-area: instagram;
+}
+
+.facebook {
+    grid-area: facebook;
+}
+
+.vk {
+    grid-area: vk;
+}
+
+.pinterest {
+    grid-area: pinterest;
+}
+
+.youtube a, .pinterest a, .facebook a, .vk a, .twitter a, .instagram a {
+    color: #000;
+}
+
+.youtube a:hover { color:rgb(255, 0, 0);}
+.twitter a:hover {color: #00a1e0;}
+.instagram a:hover {color: #c911a1;}
+.facebook a:hover {color: #284175;}
+.vk a:hover {color: #4c9aec;}
+.pinterest a:hover {color: #c8232c;}
+
+.SocialIcons {
+    display: grid;
+    grid-column-gap: 1%;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 8% 8% 8% 8% 8% 8% 1fr;
+    grid-template-areas:
+    ". vk facebook instagram youtube twitter pinterest ."
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.336);
+}
+
+/* SearchArticles */
+
+.pageSearchMain {
+    grid-area: searchMain;
+}
+
+.SearchSlider {
+    grid-area: searchSlider;
+    background-size: contain;
+    text-align: center;
+    justify-items: center;
+}
+
+.SearchSlider img {
+    width: 19vw;
+}
+
+.pageSearchArticles {
+    display: grid;
+    grid-column-gap: 2%;
+    grid-row-gap: 3vh;
+    grid-template-columns: 1fr 19% 47% 26% 1fr;
+    grid-template-rows: 15vh auto 20vh;
+    grid-template-areas:
+    "header header header header header"
+    ". searchSlider searchMain sidebar ."
+    ". footer footer footer ."
+}
+
+.searchContainer p {
+    grid-area: searchTitle;
+}
+
+.searchContainer img {
+    grid-area: searchImg;
+    width: 25vw;
+}
+
+.searchContainer span {
+    grid-area: searchCount;
+}
+
+.searchContainer {
+    display: grid;
+    grid-column-gap: 2%;
+    grid-row-gap: 3vh;
+    grid-template-columns: 60% 40% ;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "searchImg searchTitle"
+}
+

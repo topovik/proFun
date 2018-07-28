@@ -1,0 +1,27 @@
+{
+  "name": "custom-server-express",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "i": "^0.3.6",
+    "isomorphic-unfetch": "^2.0.0",
+    "mongoose": "^5.1.5",
+    "next": "6.1.1",
+    "node-uuid": "^1.4.8",
+    "npm": "^6.2.0",
+    "nuka-carousel": "^4.2.5",
+    "react": "16.4.1",
+    "react-dom": "16.4.1",
+    "request": "^2.87.0",
+    "sharp": "^0.20.3",
+    "tress": "^1.0.5"
+  }
+}

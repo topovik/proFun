@@ -1,0 +1,107 @@
+import React, { Component } from 'react'
+import fetch from 'isomorphic-unfetch'
+import MainArticles from '../containers/MainArticles'
+import AsideArticlesList from '../containers/AsideArticlesList'
+import SliderArticlesList from '../containers/SliderArticlesList'
+import SearchForm from '../components/SearchForm'
+import Social from '../components/Social'
+import Footer from '../containers/Footer'
+import Header from '../containers/Header'
+import css from "../style.css"
+
+class Index extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            art: this.props.articles
+        }
+    }
+
+    render() {
+        return (
+            <div className={css.container}>
+                <header className={css.header}>
+                    <Header />
+                </header>
+                <section className={css.MainSlider}>
+                    <SliderArticlesList sliderArticles={this.props.sliderArticles} />
+                </section>
+                <main className={css.main}>
+                    <article className={css.article}>
+                        <MainArticles art={this.state.art} articles={this.props.articles} nextArticles={this.props.nextArticles} />
+                    </article>
+                    <button onClick={this.onClick = this.onClick.bind(this)}>See More</button>
+                </main>
+                <aside className={css.aside}>
+                    <AsideArticlesList asideArticles={this.props.asideArticles} />
+                </aside>
+                <footer className={css.footer}>
+                    <Footer />
+                </footer>
+            </div>
+
+        )
+    }
+
+
+    async onClick() {
+        let countArticles = this.state.art.length;
+        let tt = await fetch(`http://localhost:3000/api/${countArticles}/nextarticles`)
+            .then(response => response.json())
+            .then(item => item.map(object => {
+                return [{
+                    title: object.title,
+                    images: object.images,
+                    id: object.id,
+                    count: object.count
+                }]
+            }))
+        this.setState({ art: this.state.art.concat(tt) })
+
+    }
+}
+
+Index.getInitialProps = async () => {
+    const data = await fetch('http://localhost:3000/api/mainarticles')
+        .then(response => response.json())
+        .then(item => item.map(object => {
+            return [{
+                title: object.title,
+                images: object.images,
+                id: object.id,
+                count: object.count
+            }]
+        }))
+
+    const dataAside = await fetch('http://localhost:3000/api/asidearticles')
+        .then(response => response.json())
+        .then(item => item.map(object => {
+            return [{
+                title: object.title,
+                images: object.images,
+                id: object.id,
+                count: object.count
+            }]
+        }))
+
+    const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
+        .then(response => response.json())
+        .then(item => item.map(object => {
+            return [{
+                title: object.title,
+                images: object.images,
+                id: object.id,
+                count: object.count
+            }]
+        }))   
+        
+
+    return {
+        articles: data,
+        asideArticles: dataAside,
+        sliderArticles: dataSlider
+    }
+}
+
+export default Index
