@@ -5,7 +5,7 @@ const fetch = require('isomorphic-unfetch');
 const fs = require('fs');
 
 router.get("/api/mainarticles", (req, res) => {
-    titleModel.find({}).limit(3).exec((err, articles) => {
+    titleModel.find({}).limit(8).exec((err, articles) => {
         res.json(articles)
     })
 })

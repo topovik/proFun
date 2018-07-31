@@ -19,14 +19,12 @@ class Header extends Component {
         window.navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
-
-            if(this.state.weth) {
+            
                 fetch(`http://localhost:3000/api/${lat}/${lon}/weather`)
                 .then(response => response.json())
                 .then(item => {
                     this.setState({weth: item, preload: false})
-                })
-            }    
+                })    
         })
     }
 
@@ -34,7 +32,7 @@ class Header extends Component {
         return (
             <React.Fragment>        
                 <Link prefetch href={{ pathname: '/'}}>
-                    <img src="/static/proFun_Logo.png" alt="logo"/>
+                   <img src="/static/proFun_Logo.png" alt="logo"/>
                 </Link>
                 <SearchForm className={css.SearchForm} />
                 <Social className={css.Social} />

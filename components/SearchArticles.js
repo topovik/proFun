@@ -11,9 +11,8 @@ class SearchArticles extends Component {
             <React.Fragment>
                 <Link prefetch href={{ pathname: '/article', query: { id: this.props.item.id } }}>
                     <div className={css.searchContainer}>
-                        <p>{this.props.title}</p>
+                        <h3>{this.props.title}</h3>
                         <img src={this.props.images} alt={this.props.title} />
-                        <span>{this.props.count}</span>
                     </div>
                 </Link>
             </React.Fragment>

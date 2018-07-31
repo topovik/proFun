@@ -16,7 +16,6 @@ class AsideArticles extends Component {
                     </div>
                 </Link>
             </React.Fragment>
-
         )
     }
 

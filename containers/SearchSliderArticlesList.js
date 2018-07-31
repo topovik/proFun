@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import SliderArticles from '../components/SliderArticles'
 import Carousel from 'nuka-carousel'
-
-
+import css from '../style.css'
 
 class SearchSliderArticlesList extends Component {
     render() {
@@ -16,20 +15,24 @@ class SearchSliderArticlesList extends Component {
             />
         })
         return (
-            <Carousel slidesToShow={4} cellAlign="left" vertical={true} wrapAround={false} framePadding="0px -2px -10px -2px"
-                renderCenterLeftControls={({ previousSlide }) => (
-                    <React.Fragment></React.Fragment>
-                )}
-                renderCenterRightControls={({ nextSlide }) => (
-                    <React.Fragment></React.Fragment>
-                )}
-                renderBottomCenterControls={({ goToSlide }) => (
-                    <React.Fragment></React.Fragment>
-                )}
-                autoplay={true}
-            >
-                {sliderList}
-            </Carousel>
+            <React.Fragment>
+                <h3 className={css.searchMustSee}>Must see ...</h3>
+                <Carousel slidesToShow={4} cellAlign="left" vertical={true} wrapAround={false} 
+                    framePadding="2px 0px"
+                    renderCenterLeftControls={({ previousSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
+                    renderCenterRightControls={({ nextSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
+                    renderBottomCenterControls={({ goToSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
+                    autoplay={true}
+                >
+                    {sliderList}
+                </Carousel>
+            </React.Fragment>
         )
     }
 }

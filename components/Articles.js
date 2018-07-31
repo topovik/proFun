@@ -16,7 +16,7 @@ const Articles = ({
 
     //Test string and past src or text
     if (title !== undefined) {
-        title.trim().slice(0, 1) === '/' ? test1 = <img src={title} alt="" /> : test1 = <p>{title}</p>
+        title.trim().slice(0, 1) === '/' ? test1 = <img src={title} alt="" /> : test1 = <h1>{title}</h1>
     }
 
     if (p1 !== undefined) {

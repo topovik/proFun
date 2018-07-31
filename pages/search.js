@@ -6,6 +6,7 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import AsideArticlesList  from '../containers/AsideArticlesList'
 import SearchSliderArticlesList from '../containers/SearchSliderArticlesList'
+import Sticky from 'react-stickynode'
 import css from '../style.css'
 
 class Search extends Component {
@@ -15,8 +16,10 @@ class Search extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
-                <section className={css.SearchSlider}>
-                    <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
+                <section className={css.SearchSlider} id="slider">
+                    <Sticky enabled={true} bottomBoundary='#slider'>
+                        <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    </Sticky>
                 </section>
                 <main className={css.pageSearchMain}>
                     <article className={css.SearchArticle}>

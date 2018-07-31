@@ -6,7 +6,8 @@ import SearchForm from '../components/SearchForm'
 import Social from '../components/Social'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
-import SliderArticlesList from '../containers/SliderArticlesList'
+import MainSliderArticlesList from '../containers/MainSliderArticlesList'
+import Sticky from 'react-stickynode'
 import css from '../style.css'
 
 
@@ -22,11 +23,13 @@ class Article extends Component {
                         <ArticlesList dataArticle={this.props.dataArticle} />
                     </article>
                 </main>
-                <aside className={css.aside}>
-                    <AsideArticlesList asideArticles={this.props.asideArticles} />
+                <aside className={css.aside} id="aside">
+                    <Sticky enabled={true} bottomBoundary='#aside'>
+                        <AsideArticlesList asideArticles={this.props.asideArticles} />
+                    </Sticky>
                 </aside>
                 <section className={css.SliderNeedSee}>
-                    <SliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    <MainSliderArticlesList sliderArticles={this.props.sliderArticles} />
                 </section>
                 <footer className={css.footer}>
                     <Footer />

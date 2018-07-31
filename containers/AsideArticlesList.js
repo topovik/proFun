@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AsideArticles from '../components/AsideArticles'
+import css from '../style.css'
 
 
 
@@ -16,6 +17,7 @@ class AsideArticlesList extends Component {
         })
         return (
             <React.Fragment>
+                <p className={css.asideTitle}>Популярное ...</p>
                 {asideList}
             </React.Fragment>
         )

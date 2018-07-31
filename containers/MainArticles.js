@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import IndexArticles from '../components/IndexArticles'
+import css from '../style.css'
 
 
 
@@ -16,7 +17,10 @@ class MainArticles extends Component {
         })
         return (
             <React.Fragment>
-                {mainList}
+                <h1 className={css.MainArticlesTitle}>Новые записи</h1>
+                <React.Fragment>
+                    {mainList}
+                </React.Fragment>
             </React.Fragment>
         )
     }

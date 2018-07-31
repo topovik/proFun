@@ -7,6 +7,7 @@ import SearchForm from '../components/SearchForm'
 import Social from '../components/Social'
 import Footer from '../containers/Footer'
 import Header from '../containers/Header'
+import Sticky from 'react-stickynode'
 import css from "../style.css"
 
 class Index extends Component {
@@ -31,10 +32,12 @@ class Index extends Component {
                     <article className={css.article}>
                         <MainArticles art={this.state.art} articles={this.props.articles} nextArticles={this.props.nextArticles} />
                     </article>
-                    <button onClick={this.onClick = this.onClick.bind(this)}>See More</button>
+                    <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
                 </main>
-                <aside className={css.aside}>
-                    <AsideArticlesList asideArticles={this.props.asideArticles} />
+                <aside className={css.aside} id="aside">
+                    <Sticky enabled={true} bottomBoundary='#aside'>
+                        <AsideArticlesList asideArticles={this.props.asideArticles} />
+                    </Sticky>
                 </aside>
                 <footer className={css.footer}>
                     <Footer />

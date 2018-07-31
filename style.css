@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
 
 html,
 body,
@@ -9,7 +10,7 @@ body,
     margin: 0;
     padding: 0;
     height: 100vh;
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font: 17px/21px 'Roboto Condensed', sans-serif;
 }
 
 .MainSlider {
@@ -24,8 +25,8 @@ body,
 }
 
 .header {
+    position: relative;
     grid-area: header;
-    position: sticky;
     overflow: hidden;
     opacity: .9;
     top: .1px;
@@ -36,6 +37,7 @@ body,
 
 .main {
     grid-area: main;
+    position: relative;
     box-shadow: 0 0 12px 0 #ccc;
 }
 
@@ -53,13 +55,13 @@ body,
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.267);
+    background: rgba(255, 255, 255, 0.39);
 }
 
 .articleTitle h3 {
     padding-bottom: 10%;
-    margin: 0 0 0 5px;
-    font-weight: 600;
+    margin: 5px 0 0 5px;
+    font: 600 17px/20px 'Roboto Condensed', sans-serif;
 }
 
 .articleTitle h4 {
@@ -68,7 +70,7 @@ body,
 }
 
 .articleCount {
-    font-weight: 700;
+    font: 700 17px/19px 'Roboto Condensed', sans-serif;
 }
 
 .articleIcon {
@@ -83,6 +85,7 @@ body,
 
 .articleSlider {
     cursor: pointer;
+    font: 600 17px/19px 'Roboto Condensed', sans-serif;
 }
 
 .articleSlider:hover > .articleImg {
@@ -106,13 +109,37 @@ body,
     width: 30vw;
 }
 
+.MainArticlesTitle {
+    grid-area: MainArticlesTitle;
+    margin: 3% 0 0 3%;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
+    justify-self: start;
+    color: #ff5e1e;
+}
+
 .aside {
     grid-area: sidebar;
     text-align: center;
     justify-items: center;
     align-items: center;
-    box-shadow: 0 0 12px 0 #ccc;
     background: rgb(92, 92, 92);
+}
+
+.asideTitle {
+    background: white;
+    margin: -2px 0 0 0;
+    padding: 10px 0 5px 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: #ff5e1e;
 }
 
 .articleAside {
@@ -120,6 +147,7 @@ body,
     border-bottom: .5px solid white;
     border-top: .5px solid white;
     cursor: pointer;
+    font: 600 16px/20px 'Roboto Condensed', sans-serif;
 }
 
 .articleAside:hover {
@@ -152,8 +180,28 @@ body,
     justify-items: center;
     align-items: center;
     grid-template-columns: 50% 50%;
-    grid-template-areas: 
+    grid-template-rows: 10% auto;
+    grid-template-areas:
+    "MainArticlesTitle MainArticlesTitle" 
     "mainDivOdd mainDivEven"
+}
+
+.IndexButton {
+    display: grid;
+    margin: 5% auto;
+    border: 2px solid rgb(100, 100, 100);
+    background: #7c7c7c;
+    padding: 10px 20px;
+    color: white;
+    font: 400 16px/16px 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+.IndexButton:hover {
+    background: #ff5e1e;
+    border: 2px solid rgba(255, 255, 255, 0.575);
+    cursor: pointer;
 }
 
 /*Article Page*/
@@ -176,10 +224,11 @@ body,
     grid-area: sliderNeedSee;
     text-align: center;
     justify-items: center;
+    font: 16px/20px 'Roboto Condensed', sans-serif;
 }
 
 .SliderNeedSee img {
-    width: 22vw;
+    width: 21.7vw;
 }
 
 .pageContainerNeedSee {
@@ -237,6 +286,7 @@ body,
     grid-area: logo;
     width: 15vw;
     margin-left: 15%;
+    cursor: pointer;
 }
 
 .Social {
@@ -266,10 +316,14 @@ body,
     font-weight: 500;
 }
 
+.Weather i {
+    padding-right: 5px;
+}
+
 .Weather span {
     position: absolute;
     font-size: 30px;
-    top: 40%;
+    top: 47%;
     left: 23%;
     font-weight: 700;
     color: white;
@@ -330,25 +384,24 @@ body,
     ". vk facebook instagram youtube twitter pinterest ."
 }
 
-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.336);
-}
-
 /* SearchArticles */
 
 .pageSearchMain {
     grid-area: searchMain;
+    box-shadow: 0 0 12px 0 #ccc;
+    justify-items: center;
 }
 
 .SearchSlider {
     grid-area: searchSlider;
     background-size: contain;
     text-align: center;
-    justify-items: center;
+    justify-items: center;;
 }
 
 .SearchSlider img {
     width: 19vw;
+    justify-items: center;
 }
 
 .pageSearchArticles {
@@ -372,17 +425,60 @@ footer {
     width: 25vw;
 }
 
-.searchContainer span {
-    grid-area: searchCount;
+.searchResult {
+    padding: 0 0 0 10px;
+    margin-bottom: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.searchMustSee {
+    margin-bottom: 0;
+    padding-bottom: 8px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
 
 .searchContainer {
     display: grid;
-    grid-column-gap: 2%;
-    grid-row-gap: 3vh;
-    grid-template-columns: 60% 40% ;
+    padding: 2% 0 1% 0;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 55% 45% ;
     grid-template-rows: auto;
     grid-template-areas:
     "searchImg searchTitle"
 }
 
+/* Footer */
+
+.footer img {
+    grid-area: footerImg;
+    width: 20vw;
+    cursor: pointer;
+}
+
+.footer p {
+    grid-area: footerReserved;
+    border-top: 1px solid rgba(0, 0, 0, 0.336);
+    padding: 1% 0 3% 0;
+}
+
+.footer {
+    display: grid;
+    border-top: 1px solid rgba(0, 0, 0, 0.336);
+    grid-template-columns: 60% 40% ;
+    grid-template-rows: 70% 30%;
+    grid-template-areas:
+    "footerImg social"
+    "footerReserved footerReserved"
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchArticles from '../components/SearchArticles'
+import css from '../style.css'
 
 class SearchList extends Component {
     render() {
@@ -14,6 +15,7 @@ class SearchList extends Component {
         })
         return (
             <React.Fragment>
+                <h1 className={css.searchResult}>Результаты поиска ...</h1>
                 {searchList}
             </React.Fragment>
         )
