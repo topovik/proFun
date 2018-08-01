@@ -4,9 +4,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
-        <Head>
+        <head>
           <link rel="stylesheet" href="/_next/static/style.css" />
-        </Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
         <body>
           <Main />
           <NextScript />

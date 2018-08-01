@@ -35,7 +35,7 @@ class Index extends Component {
                     <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
                 </main>
                 <aside className={css.aside} id="aside">
-                    <Sticky enabled={true} bottomBoundary='#aside'>
+                    <Sticky bottomBoundary='#aside'>
                         <AsideArticlesList asideArticles={this.props.asideArticles} />
                     </Sticky>
                 </aside>

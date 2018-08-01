@@ -24,9 +24,9 @@ class Article extends Component {
                     </article>
                 </main>
                 <aside className={css.aside} id="aside">
-                    <Sticky enabled={true} bottomBoundary='#aside'>
+                    <Sticky bottomBoundary='#aside'>
                         <AsideArticlesList asideArticles={this.props.asideArticles} />
-                    </Sticky>
+                    </Sticky>  
                 </aside>
                 <section className={css.SliderNeedSee}>
                     <MainSliderArticlesList sliderArticles={this.props.sliderArticles} />

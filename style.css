@@ -66,16 +66,22 @@ body,
 
 .articleTitle h4 {
     padding-bottom: 10%;
-    margin: 0 0 0 7px;
+    margin: 0 0 0 3%;
 }
 
 .articleCount {
+    grid-area: asideArticleCount;
     font: 700 17px/19px 'Roboto Condensed', sans-serif;
+    justify-self: start;
+    align-self: center;
 }
 
 .articleIcon {
+    grid-area: asideArticleIcon;
     font-size: .8em;
-    margin: 0 5px 0 10px;
+    margin: 0 5px 0 12px;
+    justify-self: end;
+    align-self: center;
 }
 
 .articleSlider span {
@@ -111,7 +117,7 @@ body,
 
 .MainArticlesTitle {
     grid-area: MainArticlesTitle;
-    margin: 3% 0 0 3%;
+    margin: 3% 0 -15px 3%;
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
     font-weight: 500;
@@ -119,43 +125,61 @@ body,
     font-size: 30px;
     justify-self: start;
     color: #ff5e1e;
-}
-
-.aside {
-    grid-area: sidebar;
-    text-align: center;
-    justify-items: center;
-    align-items: center;
-    background: rgb(92, 92, 92);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.575);
+    padding: 0 30px 15px 0;
 }
 
 .asideTitle {
-    background: white;
-    margin: -2px 0 0 0;
-    padding: 10px 0 5px 0;
+    display: inline-block;
     font-family: 'Roboto Condensed', sans-serif;
     text-align: left;
     text-transform: uppercase;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    color: #ff5e1e;
+    color: #ff5e1e;   
+    margin: 0 0 10px 6px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.575);
+    padding: 0 15px 5px 0;
+}
+
+.articleAside img {
+    grid-area: asideImg;
+    width: 100%;
+    justify-self: stretch;
+}
+
+.articleAside h4 {
+    grid-area: asideArticleTitle;
+    justify-self: center;
 }
 
 .articleAside {
-    position: relative;
-    border-bottom: .5px solid white;
-    border-top: .5px solid white;
+    border-bottom: 5px solid white;
     cursor: pointer;
     font: 600 16px/20px 'Roboto Condensed', sans-serif;
+    justify-items: stretch;
+    align-items: center;
+    background: rgb(92, 92, 92);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto 3vh;
+    grid-template-areas:
+    "asideArticleTitle asideArticleTitle"
+    "asideImg asideImg"
+    "asideArticleIcon asideArticleCount"
+}
+
+.articleAside:last-child {
+    border: none;
 }
 
 .articleAside:hover {
-    background: #ffffff54;
+    background: #7474747c;
 }
 
-.aside img {
-    width: 25vw;
+.aside {
+    grid-area: sidebar;
 }
 
 .footer {
@@ -248,10 +272,12 @@ body,
 
 .SearchForm {
     grid-area: search;
+    position: relative;
 }
 
 .inputForm {
     border: 2px solid #4a4a4a;
+    position: relative;
     text-align: left;
     border-radius: 25px 25px 25px 25px;
     overflow: hidden;
@@ -269,7 +295,7 @@ body,
     color: grey;
     cursor: pointer;
     position: absolute;
-    left: 56.5%;
+    left: 50%;
     background: transparent;
     border: none;
 }
@@ -284,7 +310,7 @@ body,
 
 .header img {
     grid-area: logo;
-    width: 15vw;
+    width: 18vw;
     margin-left: 15%;
     cursor: pointer;
 }
@@ -293,48 +319,87 @@ body,
     grid-area: social;
 }
 
-.Weather {
-    grid-area: weather;
-    position: relative;
-    opacity: 1;
-    transition: ease 1s;
-}
-
 .Weather img {
-    position: absolute;
-    width: 5vw;
-    right: 13%;
-    bottom: -25%;
+    grid-area: weatherImg;
+    justify-self: center;
+    align-self: center;
+    width: 60px;
+    margin: 0;
+    cursor: default;
 }
 
 .Weather p {
+    grid-area: weatherCity;
     font-size: 20px;
-    position: relative;
-    top: -23%;
-    left: 3%;
+    align-self: end;
+    margin: 0;
     color: #1b1b1b;
     font-weight: 500;
 }
 
 .Weather i {
-    padding-right: 5px;
+    grid-area: weatherIcon;
+    justify-self: center;
+    align-self: end;
 }
 
-.Weather span {
-    position: absolute;
-    font-size: 30px;
-    top: 47%;
-    left: 23%;
+.WeatherTemp {
+    grid-area: weatherTemp;
+    justify-self: end;
+    align-self: center;
+    font-size: 38px;
     font-weight: 700;
     color: white;
+}
+
+.WeatherC {
+    grid-area: weatherC;
+    align-self: center;
+    justify-self: start;
+    font-size: 28px;
+    color: white;
+    font-weight: 700;
+}
+
+.Weather {
+    display: grid;
+    cursor: default;
+    grid-area: weather;
+    opacity: 1;
+    transition: ease 1s;
+    grid-template-columns: 17% 18% 10% 30% 20%;
+    grid-template-rows: 6vh 9vh;
+    grid-template-areas:
+    "weatherIcon weatherCity weatherCity weatherCity ."
+    "weatherTemp weatherTemp weatherC weatherImg weatherImg"
 }
 
 .header {
     display: grid;
     align-items: center;
-    grid-template-columns: 35% 25% 22% 18%;
+    grid-template-columns: 33% 25% 23% 19%;
     grid-template-areas:
     "logo search social weather"
+}
+
+@media (min-width: 1051px) {
+    .buttonForm {
+        left: 54.5%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1050px) {
+    .header {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 28% 27% 20% 25%;
+        grid-template-areas:
+        "logo search social weather"
+    }
+
+    .buttonForm {
+        left: 49%;
+    }
 }
 
 /*Social*/
@@ -376,7 +441,7 @@ body,
 
 .SocialIcons {
     display: grid;
-    grid-column-gap: 1%;
+    grid-column-gap: 10px;
     justify-items: center;
     align-items: center;
     grid-template-columns: 1fr 8% 8% 8% 8% 8% 8% 1fr;
@@ -437,14 +502,17 @@ body,
 }
 
 .searchMustSee {
-    margin-bottom: 0;
-    padding-bottom: 8px;
+    display: inline-block;
     font-family: 'Roboto Condensed', sans-serif;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
+    color: #ff5e1e;   
+    margin: 0 0 10px 6px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.575);
+    padding: 0 15px 5px 20px;
 }
 
 .searchContainer {
