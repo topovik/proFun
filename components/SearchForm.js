@@ -13,7 +13,7 @@ class SearchForm extends Component {
     render() {
         return (
             <form>
-                <input placeholder="Search proFun.app" className={css.inputForm} type="text" value={this.state.txt} onChange={this.onChange = this.onChange.bind(this)}/>
+                <input placeholder="Search..." className={css.inputForm} type="text" value={this.state.txt} onChange={this.onChange = this.onChange.bind(this)}/>
                 <Link prefetch href={{ pathname: '/search', query: { text: this.state.txt } }}>
                     <button className={css.buttonForm}><i className="fa fa-search" aria-hidden="true"></i></button>
                 </Link>

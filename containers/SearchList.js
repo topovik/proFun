@@ -13,7 +13,6 @@ class SearchList extends Component {
                 count={t.count}
             />
         })
-        console.log(this.props.srchtxt)
         let searchRes = this.props.srchtxt[0]
         ? searchRes = <h1 className={css.searchResult}>Результаты поиска ...</h1> 
         : searchRes = <h1 className={css.searchResult}>Ничего не найдено ...</h1>

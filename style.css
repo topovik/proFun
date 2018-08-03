@@ -20,12 +20,23 @@ body,
     justify-items: center;
 }
 
+.MainSliderOne {
+    display: block;
+}
+
+.MainSliderTwo {
+    display: none;
+}
+
+.MainSliderThree {
+    display: none;
+}
+
 .MainSlider img {
     width: 24.3vw;
 }
 
 .header {
-    position: relative;
     grid-area: header;
     overflow: hidden;
     opacity: .9;
@@ -61,7 +72,7 @@ body,
 .articleTitle h3 {
     padding-bottom: 10%;
     margin: 5px 0 0 5px;
-    font: 600 17px/20px 'Roboto Condensed', sans-serif;
+    font: 600 16px/20px 'Roboto Condensed', sans-serif;
 }
 
 .articleTitle h4 {
@@ -152,6 +163,7 @@ body,
 .articleAside h4 {
     grid-area: asideArticleTitle;
     justify-self: center;
+    text-align: center;
 }
 
 .articleAside {
@@ -237,7 +249,7 @@ body,
 }
 
 .pageArticle img {
-    width: 50vw;
+    width: 45vw;
 }
 
 .pageArticle div {
@@ -272,17 +284,19 @@ body,
 
 .SearchForm {
     grid-area: search;
+}
+
+form {
     position: relative;
 }
 
 .inputForm {
     border: 2px solid #4a4a4a;
-    position: relative;
     text-align: left;
     border-radius: 25px 25px 25px 25px;
     overflow: hidden;
     width: 23vw;
-    height: 5vh;
+    height: 35px;
     background: #5c5c5c;
     font-size: 17px;
     padding: 0 0 0 15px;
@@ -295,9 +309,11 @@ body,
     color: grey;
     cursor: pointer;
     position: absolute;
-    left: 50%;
+    left: 85%;
+    top: 9.5px;
     background: transparent;
     border: none;
+    font-size: 14px;
 }
 
 .inputForm:hover {
@@ -308,7 +324,7 @@ body,
     color: rgba(255, 255, 255, 0.63);
 }
 
-.header img {
+.Logo {
     grid-area: logo;
     width: 18vw;
     margin-left: 15%;
@@ -380,26 +396,6 @@ body,
     grid-template-columns: 33% 25% 23% 19%;
     grid-template-areas:
     "logo search social weather"
-}
-
-@media (min-width: 1051px) {
-    .buttonForm {
-        left: 54.5%;
-    }
-}
-
-@media (min-width: 800px) and (max-width: 1050px) {
-    .header {
-        display: grid;
-        align-items: center;
-        grid-template-columns: 28% 27% 20% 25%;
-        grid-template-areas:
-        "logo search social weather"
-    }
-
-    .buttonForm {
-        left: 49%;
-    }
 }
 
 /*Social*/
@@ -549,4 +545,509 @@ body,
     grid-template-areas:
     "footerImg social"
     "footerReserved footerReserved"
+}
+
+/* @media */
+
+@media (min-width: 750px) and (max-width: 1050px) {
+    .header {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 28% 27% 20% 25%;
+        grid-template-areas:
+        "logo search social weather"
+    }
+
+    .buttonForm {
+        position: absolute;
+        left: 79%;
+        top: 7px;
+        font-size: 14px;
+    }
+
+    .articleCount {
+        font-size: 13px;
+    }
+
+    .articleAside h4 {
+        margin: 3% 0;
+        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+    }
+
+    .articleTitle h3 {
+        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+        padding-bottom: 5%;
+    }
+
+    .articleSlider {
+        font: 600 15px/18px 'Roboto Condensed', sans-serif;
+    }
+
+    .articleTitle h4 {
+        padding-bottom: 8%;
+    }
+
+    .Logo {
+        width: 20vw;
+    }
+
+    .inputForm {
+        width: 23vw;
+        height: 29px;
+        font-size: 15px;
+    }
+
+    .container {
+        grid-template-rows: 14vh auto auto 16vh;
+    }
+
+    .Weather {
+        grid-template-rows: 4vh 7vh;
+    }
+
+    /* Article page */
+
+    .pageArticle img {
+        width: 100%;
+    }
+
+    .pageContainerNeedSee {
+        grid-template-rows: 14vh auto auto 16vh;
+    }
+
+    /* pageSearch */
+
+    .SearchSlider {
+        display: none;
+        grid-area: searchSlider;
+        background-size: contain;
+        text-align: center;
+        justify-items: center;;
+    }
+
+    .pageSearchArticles {
+        display: grid;
+        grid-template-columns: 1fr 60% 32% 1fr;
+        grid-template-rows: 11vh auto 16vh;
+        grid-template-areas:
+        "header header header header"
+        ". searchMain sidebar ."
+        ". footer footer ."
+    }
+
+    .searchContainer img {
+        width: 30vw;
+    }
+
+    .searchContainer h3 {
+        font-size: 16px;
+    }
+
+    .SocialIcons {
+        grid-column-gap: 20px;
+        grid-row-gap: 6px;
+        grid-template-columns: 1fr 8% 8% 8% 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        ". vk facebook instagram ."
+        ". youtube twitter pinterest ."
+    }
+
+    .footer img {
+        grid-area: footerImg;
+        width: 30vw;
+        cursor: pointer;
+    }
+
+
+}
+
+@media (min-width: 550px) and (max-width: 749px) {
+    .aside {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: 1fr 67% 27% 1fr;
+        grid-template-rows: 14vh auto auto 14vh;
+        grid-template-areas: 
+        "header header header header" 
+        "slider slider slider slider" 
+        ". main main ." 
+        ". footer footer ."
+    }
+
+    .article img {
+        width: 45vw
+    }
+
+    .article {
+        display: grid;
+        justify-items: center;
+        align-self: center;
+        grid-row-gap: 2vh;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 10% auto;
+        grid-template-areas:
+        "MainArticlesTitle MainArticlesTitle" 
+        "mainDivOdd mainDivEven"
+    }
+
+    .articleContainer {
+        margin-top: 0;    
+    }
+
+    .MainArticlesTitle {
+        margin: 3% 0 0 3%;
+    }
+
+    .Weather {
+        display: none;
+    }
+
+    .header {
+        justify-items: end;
+        grid-template-columns: 42% 33% 25%;
+        grid-template-areas:
+        "logo search social"
+    }
+
+    .buttonForm {
+        position: absolute;
+        left: 79%;
+        top: 7px;
+        font-size: 12px;
+    }
+
+    .articleCount {
+        font-size: 13px;
+    }
+
+    .articleAside h4 {
+        margin: 3% 0;
+        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+    }
+
+    .articleTitle h3 {
+        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+        padding-bottom: 5%;
+    }
+
+    .articleSlider {
+        font: 600 15px/18px 'Roboto Condensed', sans-serif;
+    }
+
+    .articleTitle h4 {
+        padding-bottom: 8%;
+    }
+
+    .Logo {
+        width: 35vw;
+    }
+
+    .inputForm {
+        width: 23vw;
+        height: 25px;
+        font-size: 11px;
+    }
+
+    /* Article page */
+
+    .pageArticle img {
+        width: 100%;
+    }
+
+    .pageContainerNeedSee {
+        grid-template-columns: 1fr 67% 27% 1fr;
+        grid-template-rows: 14vh auto auto 16vh;
+        grid-template-areas:
+        "header header header header"
+        ". pageMain pageMain ."
+        ". sliderNeedSee sliderNeedSee ."
+        ". footer footer ."
+    }
+
+    .SliderNeedSee img {
+        width: 96%;
+    }
+
+    /* pageSearch */
+
+    .SearchSlider {
+        display: none;
+        grid-area: searchSlider;
+        background-size: contain;
+        text-align: center;
+        justify-items: center;;
+    }
+
+    .pageSearchArticles {
+        grid-template-columns: 1fr 60% 32% 1fr;
+        grid-template-rows: 14vh auto 16vh;
+        grid-template-areas:
+        "header header header header"
+        ". searchMain searchMain."
+        ". footer footer ."
+    }
+
+    .SearchSlider img {
+        width: 100%;
+        justify-items: center;
+    }
+
+    .searchContainer img {
+        width: 96%;
+    }
+
+    .searchContainer h3 {
+        font-size: 16px;
+    }
+
+    .SocialIcons {
+        align-self: center;
+        grid-column-gap: 20px;
+        grid-row-gap: 6px;
+        grid-template-columns: 1fr 8% 8% 8% 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        ". vk facebook instagram ."
+        ". youtube twitter pinterest ."
+    }
+
+    .MainSliderOne {
+        display: none;
+    }
+    
+    .MainSliderTwo {
+        display: block;
+        grid-area: two;
+    }
+
+    .MainSliderThree {
+        display: block;
+        grid-area: three;
+    }
+
+    .MainSliderContainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "two three"
+
+    }
+
+    .MainSliderTwo img, .MainSliderThree img {
+        width: 99%;
+    }
+
+    .footer img {
+        grid-area: footerImg;
+        width: 35vw;
+        cursor: pointer;
+    }
+
+}
+
+@media (max-width: 549px) {
+    .aside {
+        display: none;
+    }
+
+    .Weather {
+        display: none;
+    }
+
+    .container {
+        grid-template-columns: 1fr 96% 1fr;
+        grid-template-rows: 8.3vh auto auto 12vh;
+        grid-template-areas: 
+        "header header header" 
+        "slider slider slider" 
+        ". main ." 
+        ". footer ."
+    }
+
+    .article img {
+        width: 94vw;
+    }
+
+    .article {
+        display: grid;
+        justify-items: center;
+        align-self: center;
+        grid-row-gap: 2vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% auto auto;
+        grid-template-areas:
+        "MainArticlesTitle" 
+        "mainDivOdd"
+        "mainDivEven"
+    }
+
+    .articleContainer {
+        margin-top: 0;    
+    }
+
+    .MainArticlesTitle {
+        margin: 3% 0 0 3%;
+    }
+
+    .header {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 55% 45%;
+        grid-template-areas:
+        "logo search"
+        "logo social"
+    }
+
+    .buttonForm {
+        position: absolute;
+        left: 79%;
+        top: 6px;
+        font-size: 10px;
+    }
+
+    .articleCount {
+        font-size: 13px;
+    }
+
+    .articleTitle h3 {
+        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+        padding-bottom: 5%;
+    }
+
+    .articleSlider {
+        font: 600 15px/18px 'Roboto Condensed', sans-serif;
+    }
+
+    .articleTitle h4 {
+        padding-bottom: 8%;
+    }
+
+    .Logo {
+        width: 90%;
+        margin: 0;
+        justify-self: center;
+        align-self: center;
+    }
+
+    form {
+        position: relative;
+        justify-self: center;
+        align-self: end;
+    }
+
+    .inputForm {
+        width: 30vw;
+        height: 20px;
+        font-size: 11px;
+    }
+
+    .IndexButton {
+        padding: 5px 12px;
+        font: 400 16px/16px 'Roboto Condensed', sans-serif;
+    }
+
+    /* Article page */
+
+    .pageArticle img {
+        width: 100%;
+    }
+
+    .pageContainerNeedSee {
+        grid-template-columns: 1fr 96% 1fr;
+        grid-template-rows: 8.3vh auto 12vh;
+        grid-template-areas: 
+        "header header header"  
+        ". pageMain ." 
+        ". footer ."
+    }
+
+    .SliderNeedSee {
+        display: none;
+    }
+
+    /* pageSearch */
+
+    .SearchSlider {
+        display: none;
+    }
+
+    .pageSearchArticles {
+        grid-template-columns: 1fr 96% 1fr;
+        grid-template-rows: 8.3vh auto 12vh;
+        grid-template-areas: 
+        "header header header" 
+        ". searchMain ." 
+        ". footer ."
+    }
+
+    .searchContainer img {
+        width: 96%;
+    }
+
+    .searchContainer h3 {
+        font-size: 16px;
+    }
+
+    .youtube a, .pinterest a, .facebook a, .vk a, .twitter a, .instagram a {
+        font-size: 12px;
+    }
+
+    .SocialIcons {
+        align-self: center;
+        grid-column-gap: 9%;
+        grid-template-columns: 1fr 3% 3% 3% 3% 3% 3% 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+        ". vk facebook instagram youtube twitter pinterest ."
+    }
+
+    .MainSliderOne {
+        display: none;
+    }
+    
+    .MainSliderTwo {
+        display: block;
+        grid-area: two;
+    }
+
+    .MainSliderThree {
+        display: none;
+    }
+
+    .MainSliderContainer {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "two"
+
+    }
+
+    .MainSliderTwo img {
+        width: 99.5%;
+    }
+
+    .footer img {
+        justify-self: end;
+        align-self: center;
+        grid-area: footerImg;
+        width: 48vw;
+        cursor: pointer;
+    }
+
+    .footer {
+        grid-template-columns: 45% 55% ;
+        grid-template-rows: 50% 20% 30%;
+        grid-template-areas:
+        "footerImg footerImg"
+        "social ."
+        "footerReserved footerReserved"
+    }
+
+    .footer p {
+        font-size: 15px;
+    }
 }

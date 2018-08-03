@@ -32,7 +32,7 @@ class Header extends Component {
         return (
             <React.Fragment>        
                 <Link prefetch href={{ pathname: '/'}}>
-                   <img src="/static/proFun_Logo.png" alt="logo"/>
+                   <img className={css.Logo} src="/static/proFun_Logo.png" alt="logo"/>
                 </Link>
                 <SearchForm className={css.SearchForm} />
                 <Social className={css.Social} />
