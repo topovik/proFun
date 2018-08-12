@@ -9,7 +9,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-mongoose.connect(uri, err => {
+mongoose.connect(uri, { useNewUrlParser: true }, err => {
 	if (err) throw err;
 	console.log("Connected successfull")
 })

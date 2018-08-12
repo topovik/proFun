@@ -18,6 +18,7 @@ body,
     background-size: contain;
     text-align: center;
     justify-items: center;
+    margin-top: -3vh;
 }
 
 .MainSliderOne {
@@ -33,7 +34,7 @@ body,
 }
 
 .MainSlider img {
-    width: 24.3vw;
+    width: 20.2vw;
 }
 
 .header {
@@ -42,8 +43,8 @@ body,
     opacity: .9;
     top: .1px;
     z-index: 105;
-    background: #5c5c5c;
-    box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+    background: #444;
+    border-bottom: 1px solid #4d4d4d;
 }
 
 .main {
@@ -123,7 +124,7 @@ body,
 }
 
 .article img {
-    width: 30vw;
+    width: 100%;
 }
 
 .MainArticlesTitle {
@@ -198,15 +199,282 @@ body,
     grid-area: footer;
 }
 
+
+/* Navigation */
+
+.NavigationForm {
+    grid-area: navigationForm;
+    border-left: 1px solid #4d4d4d;
+}
+
+.youtubeNavigation {
+    grid-area: youtubeNavigation;
+}
+
+.twitterNavigation {
+    grid-area: twitterNavigation;
+}
+
+.instagramNavigation {
+    grid-area: instagramNavigation;
+}
+
+.facebookNavigation {
+    grid-area: facebookNavigation;
+}
+
+.vkNavigation {
+    grid-area: vkNavigation;
+}
+
+.pinterestNavigation {
+    grid-area: pinterestNavigation;
+}
+
+.FollowContainer {
+    justify-self: end;
+    position: relative;
+    grid-area: followContainer;
+    align-self: center;
+}
+
+.NavigationFollow span {
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+.NavigationFollow {
+    text-shadow: 0px 0px .5px rgb(0, 0, 0);
+    padding: 15px 11px;
+    color: #999;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.NavigationFollow:hover {
+    color: white;
+    background: #333;
+}
+
+.FollowContainer:hover > .SocialIconsNavigation {
+    display: grid;
+    background: #333;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+    "youtubeNavigation"
+    "twitterNavigation"
+    "instagramNavigation"
+    "facebookNavigation"
+    "vkNavigation"
+    "pinterestNavigation"
+}
+
+.SocialIconsNavigation {
+    position: absolute;
+    display: none;
+}
+
+.SocialIconsNavigation ul {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.SocialIconsNavigation ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.SocialIconsNavigation span {
+    padding-left: 15px;
+}
+
+.SocialIconsNavigation ul li {
+    padding: 7px 11px;
+    border-bottom: 1px solid #4d4d4d;
+}
+
+.SocialIconsNavigation ul li:first-child {
+    border-top: 1px solid #4d4d4d;
+}
+
+.SocialIconsNavigation ul li:nth-child(1):hover {
+    background: rgb(255, 0, 0);
+}
+
+.SocialIconsNavigation ul li:nth-child(2):hover {
+    background: #00a1e0;
+}
+
+.SocialIconsNavigation ul li:nth-child(3):hover {
+    background: #c911a1;
+}
+
+.SocialIconsNavigation ul li:nth-child(4):hover {
+    background: #284175;
+}
+
+.SocialIconsNavigation ul li:nth-child(5):hover {
+    background: #4c9aec;
+}
+
+.SocialIconsNavigation ul li:nth-child(6):hover {
+    background: #c8232c;
+}
+
+.NavigationSearch {
+    font-size: 13px;
+    color: #999;
+    position: relative;
+    grid-area: navigationSearch;
+    align-self: center;
+    justify-self: start;
+    border-left: 1px solid #4d4d4d;
+    border-right: 1px solid #4d4d4d;
+}
+
+.NavigationSearchIcon {
+    padding: 15px 20px;
+}
+
+.NavigationSearchForm {
+    position: absolute;
+    left: -200px;
+}
+
+.inputFormNavigation {
+    grid-area: inputFormNavigation;
+    padding-left: 5px;
+    border: 2px solid #4a4a4a;
+    text-align: left;
+    overflow: hidden;
+    width: 12vw;
+    height: 20px;
+    background: #5c5c5c;
+    font-size: 15px;
+    outline: none;
+    color: rgb(63, 63, 63);
+    margin-left: 10px;
+}
+
+.buttonFormNavigation {
+    grid-area: buttonFormNavigation;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: grey;
+}
+
+.ContainerSearchNavigation {
+    padding: 6px 6px;
+    display: grid;
+    background: #333;
+    grid-template-columns: 8% 92%;
+    grid-template-areas: 
+    "buttonFormNavigation inputFormNavigation" 
+}
+
+.Navigation {
+    grid-area: navigation;
+    margin: 0 -1%;
+    position: relative;
+    top: -3vh;
+}
+
+.NavigationSection {
+    border-bottom: 1px solid white;
+    display: grid;
+    background: #3f3f3f;
+    grid-template-columns: 1fr 40% 29% 8% 3% 1fr;
+    grid-template-areas: 
+    ". navigationForm navigationForm followContainer navigationSearch ." 
+}
+
+.NavigationForm h2 {
+    text-shadow: 0px 0px 1px rgb(0, 0, 0);
+    margin: 0;
+    display: inline-block;
+    padding: 15px 25px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.NavigationForm h2:nth-child(1) {
+    border-top: 1px solid black;
+}
+
+.NavigationForm h2:nth-child(2) {
+    border-top: 1px solid red;
+}
+
+.NavigationForm h2:nth-child(3) {
+    border-top: 1px solid rgb(187, 255, 0);
+}
+
+.NavigationForm h2:nth-child(4) {
+    border-top: 1px solid orange;
+}
+
+.NavigationForm h2:nth-child(5) {
+    border-top: 1px solid rgb(0, 162, 255);
+}
+
+.NavigationForm h2:nth-child(6) {
+    border-top: 1px solid green;
+}
+
+.NavigationForm h2:nth-child(7) {
+    border-top: 1px solid rgb(255, 192, 229);
+}
+
+.NavigationForm h2:nth-child(1):hover {
+   background: rgb(26, 26, 26);
+}
+
+.NavigationForm h2:nth-child(2):hover {
+    background: rgb(206, 0, 0);
+}
+
+.NavigationForm h2:nth-child(3):hover {
+    background: rgb(135, 184, 0);
+}
+
+.NavigationForm h2:nth-child(4):hover {
+    background: rgb(185, 121, 0);
+}
+
+.NavigationForm h2:nth-child(5):hover {
+    background: rgb(0, 110, 173);
+}
+
+.NavigationForm h2:nth-child(6):hover {
+    background: rgb(0, 95, 0);
+}
+
+.NavigationForm h2:nth-child(7):hover {
+    background: rgb(184, 133, 163);
+}
+
 .container {
     display: grid;
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
-    grid-template-columns: 1fr 67% 27% 1fr;
-    grid-template-rows: 15vh auto auto 20vh;
+    grid-template-columns: 1fr 60% 20% 1fr;
+    grid-template-rows: 15vh auto auto auto 20vh;
     grid-template-areas: 
     "header header header header" 
-    "slider slider slider slider" 
+    "navigation navigation navigation navigation"
+    ". slider slider ." 
     ". main sidebar ." 
     ". footer footer ."
 }
@@ -249,11 +517,11 @@ body,
 }
 
 .pageArticle img {
-    width: 45vw;
+    width: 100%;
 }
 
 .pageArticle div {
-    margin: 0 2%;
+    margin: 2% 7%;
 }
 
 .SliderNeedSee {
@@ -280,14 +548,21 @@ body,
     ". footer footer ."
 }
 
-/*SearchForm*/
-
-.SearchForm {
-    grid-area: search;
+.Tags p {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 5px 5px;
+    margin-right: 7px;
 }
 
-form {
+
+
+/*SearchForm*/
+
+.HeaderSearchForm {
     position: relative;
+    grid-area: search;
+    justify-self: center;
 }
 
 .inputForm {
@@ -295,10 +570,10 @@ form {
     text-align: left;
     border-radius: 25px 25px 25px 25px;
     overflow: hidden;
-    width: 23vw;
+    width: 15vw;
     height: 35px;
     background: #5c5c5c;
-    font-size: 17px;
+    font-size: 16px;
     padding: 0 0 0 15px;
     outline: none;
     color: rgb(63, 63, 63);
@@ -309,8 +584,8 @@ form {
     color: grey;
     cursor: pointer;
     position: absolute;
-    left: 85%;
-    top: 9.5px;
+    left: 87%;
+    top: 10px;
     background: transparent;
     border: none;
     font-size: 14px;
@@ -326,18 +601,14 @@ form {
 
 .Logo {
     grid-area: logo;
-    width: 18vw;
-    margin-left: 15%;
+    width: 15vw;
     cursor: pointer;
-}
-
-.Social {
-    grid-area: social;
+    justify-self: start;
 }
 
 .Weather img {
     grid-area: weatherImg;
-    justify-self: center;
+    justify-self: end;
     align-self: center;
     width: 60px;
     margin: 0;
@@ -346,17 +617,17 @@ form {
 
 .Weather p {
     grid-area: weatherCity;
-    font-size: 20px;
     align-self: end;
+    justify-self: end;
+    font-size: 18px;
     margin: 0;
     color: #1b1b1b;
     font-weight: 500;
 }
 
-.Weather i {
-    grid-area: weatherIcon;
-    justify-self: center;
-    align-self: end;
+.Weather p span {
+    padding-left: 10px;
+    font: 20px 'Roboto Condensed', sans-serif;
 }
 
 .WeatherTemp {
@@ -369,33 +640,29 @@ form {
 }
 
 .WeatherC {
-    grid-area: weatherC;
-    align-self: center;
-    justify-self: start;
-    font-size: 28px;
-    color: white;
-    font-weight: 700;
+    font-size: 30px;
 }
 
 .Weather {
     display: grid;
+    justify-self: end;
     cursor: default;
     grid-area: weather;
     opacity: 1;
     transition: ease 1s;
-    grid-template-columns: 17% 18% 10% 30% 20%;
+    grid-template-columns: 50% 25% 25%;
     grid-template-rows: 6vh 9vh;
     grid-template-areas:
-    "weatherIcon weatherCity weatherCity weatherCity ."
-    "weatherTemp weatherTemp weatherC weatherImg weatherImg"
+    "weatherCity weatherCity ."
+    "weatherTemp weatherImg weatherImg"
 }
 
 .header {
     display: grid;
     align-items: center;
-    grid-template-columns: 33% 25% 23% 19%;
+    grid-template-columns: auto 20% 25% 20% 16% auto;
     grid-template-areas:
-    "logo search social weather"
+    ". logo search social weather ."
 }
 
 /*Social*/
@@ -428,7 +695,7 @@ form {
     color: #000;
 }
 
-.youtube a:hover { color:rgb(255, 0, 0);}
+.youtube a:hover {color:rgb(255, 0, 0);}
 .twitter a:hover {color: #00a1e0;}
 .instagram a:hover {color: #c911a1;}
 .facebook a:hover {color: #284175;}
@@ -436,6 +703,7 @@ form {
 .pinterest a:hover {color: #c8232c;}
 
 .SocialIcons {
+    grid-area: social;
     display: grid;
     grid-column-gap: 10px;
     justify-items: center;
@@ -753,6 +1021,14 @@ form {
 
     /* Article page */
 
+    .Tags p{
+        display: inline-block;
+        border: 2px solid black;
+        padding: 3px 3px;
+        margin-right: 7px;
+        font-size: 15px;
+    }
+
     .pageArticle img {
         width: 100%;
     }
@@ -950,6 +1226,14 @@ form {
     }
 
     /* Article page */
+
+    .Tags p{
+        display: inline-block;
+        border: 1px solid black;
+        padding: 3px 3px;
+        margin: 5px 3px;
+        font-size: 13px;
+    }
 
     .pageArticle img {
         width: 100%;

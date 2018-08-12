@@ -107,7 +107,8 @@ Article.getInitialProps = async (req) => {
                     p57: obj.text.t57,
                     p58: obj.text.t58,
                     p59: obj.text.t59,
-                    p60: obj.text.t60
+                    p60: obj.text.t60,
+                    tags: obj.text.tags
 
                 }]
             }]

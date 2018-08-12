@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'next/link'
 import css from "../style.css"
 
-class SearchForm extends Component {
+class SearchFormNavigation extends Component {
     constructor(props) {
         super(props)
 
@@ -12,10 +12,10 @@ class SearchForm extends Component {
     }
     render() {
         return (
-            <form className={css.HeaderSearchForm}>
-                <input placeholder="Search..." className={css.inputForm} type="text" value={this.state.txt} onChange={this.onChange = this.onChange.bind(this)}/>
+            <form className={css.ContainerSearchNavigation}>
+                <input placeholder="Search..." className={css.inputFormNavigation} type="text" value={this.state.txt} onChange={this.onChange = this.onChange.bind(this)}/>
                 <Link prefetch href={{ pathname: '/search', query: { text: this.state.txt } }}>
-                    <button className={css.buttonForm}><i className="fa fa-search" aria-hidden="true"></i></button>
+                    <button className={css.buttonFormNavigation}><i className="fa fa-search" aria-hidden="true"></i></button>
                 </Link>
             </form>
         )
@@ -27,4 +27,4 @@ class SearchForm extends Component {
 
 }
 
-export default SearchForm
+export default SearchFormNavigation

@@ -68,6 +68,9 @@ class ArticlesList extends Component {
                 p58={t[0].text[0].p58}
                 p59={t[0].text[0].p59}
                 p60={t[0].text[0].p60}
+                tags={t[0].text[0].tags.map(r => {
+                    return r
+                })}
             />
         })
         return (

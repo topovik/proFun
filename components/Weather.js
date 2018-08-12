@@ -12,18 +12,22 @@ class Weather extends Component {
         return (
             this.props.preload 
             ?   <div style={{opacity: 0}}>
-                    <i className="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>{this.props.weather.town}</p>
+                    <p className="fa fa-map-marker" aria-hidden="true">
+                        {this.props.weather.town}
+                    </p>
                     <img src={imagesPath} alt="weather"/>
                     <span>{this.props.weather.temp|0}</span>
                     <span>°C</span>
                 </div>
             :   <div className={css.Weather}>
-                    <i className="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>{this.props.weather.town}</p>
+                    <p className="fa fa-map-marker" aria-hidden="true">
+                        <span>{this.props.weather.town}</span>
+                    </p>
                     <img src={imagesPath} alt="weather"/>
-                    <span className={css.WeatherTemp}>{this.props.weather.temp|0}</span>
-                    <span className={css.WeatherC}>°C</span>
+                    <span className={css.WeatherTemp}>{this.props.weather.temp|0}
+                        <span className={css.WeatherC}>°C</span>
+                    </span>
+                    
                 </div>
         )
     }

@@ -7,6 +7,7 @@ import SearchForm from '../components/SearchForm'
 import Social from '../components/Social'
 import Footer from '../containers/Footer'
 import Header from '../containers/Header'
+import NavigationForm from '../components/NavigationForm'
 import Sticky from 'react-stickynode'
 import css from "../style.css"
 
@@ -25,6 +26,11 @@ class Index extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
+                <nav className={css.Navigation}> 
+                    <Sticky innerZ={999}>
+                       <NavigationForm />
+                    </Sticky>
+                </nav> 
                 <section className={css.MainSlider}>
                     <SliderArticlesList sliderArticles={this.props.sliderArticles} />
                 </section>

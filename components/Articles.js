@@ -1,9 +1,10 @@
 import React from 'react'
+import css from '../style.css'
 
 const Articles = ({
     title, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23,
     p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45,
-    p46, p47, p48, p49, p50, p51, p52, p53, p54, p55, p56, p57, p58, p59, p60 }) => {
+    p46, p47, p48, p49, p50, p51, p52, p53, p54, p55, p56, p57, p58, p59, p60, tags }) => {
 
     let test1; let test2; let test3; let test4; let test5; let test6; let test7; let test8; let test9;
     let test10; let test11; let test12; let test13; let test14; let test15; let test16; let test17;
@@ -12,7 +13,7 @@ const Articles = ({
     let test34; let test35; let test36; let test37; let test38; let test39; let test40; let test41;
     let test42; let test43; let test44; let test45; let test46; let test47; let test48; let test49;
     let test50; let test51; let test52; let test53; let test54; let test55; let test56; let test57;
-    let test58; let test59; let test60;
+    let test58; let test59; let test60; let testTags;
 
     //Test string and past src or text
     if (title !== undefined) {
@@ -255,6 +256,11 @@ const Articles = ({
         p59.trim().slice(0, 1) === '/' ? test60 = <img src={p59} alt="" /> : test60 = <p>{p59}</p>
     }
 
+    testTags = tags.map(t => {
+        return <p>{t}</p>
+    })
+
+
     return (
         <React.Fragment>
             {test1}
@@ -317,6 +323,9 @@ const Articles = ({
             {test58}
             {test59}
             {test60}
+            <div className={css.Tags}>
+                {testTags}
+            </div>
         </React.Fragment>
     )
 }
