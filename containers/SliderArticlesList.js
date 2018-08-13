@@ -14,6 +14,7 @@ class SliderArticlesList extends Component {
                 key={t[0].id}
                 item={t[0]}
                 count={t[0].count}
+                navigation={t[0].navigation}
             />
         })
         return (

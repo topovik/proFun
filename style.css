@@ -14,9 +14,8 @@ body,
 }
 
 .MainSlider {
+    position: relative;
     grid-area: slider;
-    background-size: contain;
-    text-align: center;
     justify-items: center;
     margin-top: -3vh;
 }
@@ -33,7 +32,66 @@ body,
     display: none;
 }
 
-.MainSlider img {
+.articleSliderContainer div span {
+    grid-area: articleCount;
+    align-self: center;
+    justify-self: start;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.articleSliderContainer div i {
+    grid-area: articleIcon;
+    align-self: center;
+    justify-self: start;
+    color: whitesmoke;
+    font-size: 14px;
+}
+
+.articleSliderContainer div h3 {
+   grid-area: articleName;
+   margin: 0;
+   justify-self: start;
+   align-self: center;
+   font: 700 18px/20px 'Roboto Condensed', sans-serif;
+   color: white;
+}
+
+.articleSliderContainer h5 {
+    position: absolute;
+    top: 0;
+    padding: 0 15px;
+    font: 700 14px/26px 'Roboto Condensed', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.articleSliderContainer div {
+    position: absolute;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    grid-area: articleTitle;
+    background: rgba(26, 26, 26, 0.562);
+    display: grid;
+    grid-template-columns: 1fr 5% 85% 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+    ". articleName articleName ."
+    ". articleIcon articleCount ."
+}
+
+.articleSliderContainer {
+    width: 20.2vw;
+    position: relative;
+}
+
+.MainSliderImg {
+    display: grid;
+    cursor: pointer;
     width: 20.2vw;
 }
 
@@ -53,92 +111,199 @@ body,
     box-shadow: 0 0 12px 0 #ccc;
 }
 
-.article:nth-child(odd) {
-    grid-area: mainDivOdd;
+.articleContainer:hover > .auto, .articleSliderContainer:hover > .auto {
+    background: rgba(206, 0, 0, 0.40);
 }
 
-.article:nth-child(even) {
-    grid-area: mainDivEven;
+.articleContainer:hover > .finance, .articleSliderContainer:hover > .finance {
+    background: rgb(187, 255, 0, 0.40);
 }
 
-.articleTitle {
+.articleContainer:hover > .sport, .articleSliderContainer:hover > .sport {
+    background: rgb(185, 121, 0, 0.40);
+}
+
+.articleContainer:hover > .games, .articleSliderContainer:hover > .games {
+    background: rgb(0, 162, 255, 0.40);
+}
+
+.articleContainer:hover > .it, .articleSliderContainer:hover > .it {
+    background: rgb(0, 95, 0, 0.40);
+}
+
+.articleContainer:hover > .other, .articleSliderContainer:hover > .other {
+    background: rgb(184, 133, 163, 0.40);
+}
+
+.backColorAuto {
+    background: rgb(206, 0, 0);
+}
+
+.backColorFinance {
+    background: rgb(187, 255, 0);
+}
+
+.backColorSport {
+    background: rgb(185, 121, 0);
+}
+
+.backColorGames {
+    background: rgb(0, 162, 255);
+}
+
+.backColorIt {
+    background: rgb(0, 95, 0);
+}
+
+.backColorOther {
+    background: rgb(184, 133, 163);
+}
+
+.backColorAuto:hover {
+    background: rgb(255, 0, 0, 0.700);
+}
+
+.backColorFinance:hover {
+    background: rgba(187, 255, 0, 0.700);
+}
+
+.backColorSport:hover {
+    background: rgb(185, 121, 0, 0.700);
+}
+
+.backColorGames:hover {
+    background: rgb(0, 162, 255, 0.700);
+}
+
+.backColorIt:hover {
+    background: rgb(0, 95, 0, 0.700);
+}
+
+.backColorOther:hover {
+    background: rgb(184, 133, 163, 0.700);
+}
+
+.articleContainer div span {
+    grid-area: articleCount;
+    align-self: center;
+    justify-self: start;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+.articleContainer div i {
+    grid-area: articleIcon;
+    align-self: center;
+    justify-self: start;
+    color: whitesmoke;
+    font-size: 14px;
+}
+
+.articleContainer div h3 {
+   grid-area: articleName;
+   margin: 0;
+   justify-self: start;
+   align-self: center;
+   font: 700 18px/20px 'Roboto Condensed', sans-serif;
+   color: white;
+}
+
+.articleContainer h5 {
     position: absolute;
-    text-align: left;
+    top: 0;
+    padding: 0 15px;
+    font: 700 14px/26px 'Roboto Condensed', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.articleContainer div {
+    position: absolute;
+    top: 60%;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.39);
-}
-
-.articleTitle h3 {
-    padding-bottom: 10%;
-    margin: 5px 0 0 5px;
-    font: 600 16px/20px 'Roboto Condensed', sans-serif;
-}
-
-.articleTitle h4 {
-    padding-bottom: 10%;
-    margin: 0 0 0 3%;
-}
-
-.articleCount {
-    grid-area: asideArticleCount;
-    font: 700 17px/19px 'Roboto Condensed', sans-serif;
-    justify-self: start;
-    align-self: center;
-}
-
-.articleIcon {
-    grid-area: asideArticleIcon;
-    font-size: .8em;
-    margin: 0 5px 0 12px;
-    justify-self: end;
-    align-self: center;
-}
-
-.articleSlider span {
-    position: relative;
-    bottom: 7px;
-}
-
-.articleSlider {
     cursor: pointer;
-    font: 600 17px/19px 'Roboto Condensed', sans-serif;
-}
-
-.articleSlider:hover > .articleImg {
-    opacity: .9;
-    border-bottom: 2px solid black;
+    grid-area: articleTitle;
+    background: rgba(26, 26, 26, 0.562);
+    display: grid;
+    grid-template-columns: 1fr 5% 85% 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+    ". articleName articleName ."
+    ". articleIcon articleCount ."
 }
 
 .articleContainer {
-    display: grid;
+    width: 27vw;
     position: relative;
-    margin-top: 4vh;
+}
+
+.MainArticleImg {
+    display: grid;
     cursor: pointer;
+    width: 27vw;
 }
 
-.articleContainer:hover > .articleTitle {
-    background: #14141496;
-    color: white;
+.articles div:nth-child(odd) {
+    grid-area: mainDivOdd;
 }
 
-.article img {
+.articles div:nth-child(even) {
+    grid-area: mainDivEven;
+}
+
+.articlesList {
+    grid-area: articlesList;
     width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 3vh;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "mainDivOdd mainDivEven" 
 }
 
 .MainArticlesTitle {
+    margin: 1% 0 -1% 0;
+    display: grid;
+    position: relative;
+    width: 96%;
     grid-area: MainArticlesTitle;
-    margin: 3% 0 -15px 3%;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Condensed', sans-sersif;
     text-transform: uppercase;
-    font-weight: 500;
     font-style: normal;
-    font-size: 30px;
-    justify-self: start;
     color: #ff5e1e;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.575);
-    padding: 0 30px 15px 0;
+    border-bottom: 1px solid #e3e3e3;
+    grid-template-columns: 65% 35%;
+    grid-template-areas:
+    "mainArticlesTitleh1 social" 
+}
+
+.MainArticlesTitle span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 1px;
+    background: #222;
+}
+
+.MainArticlesTitle h1 {
+    grid-area: mainArticlesTitleh1;
+}
+
+.article {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 3vh;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 15% auto;
+    grid-template-areas:
+    "MainArticlesTitle MainArticlesTitle" 
+    "articlesList articlesList"
 }
 
 .asideTitle {
@@ -199,6 +364,20 @@ body,
     grid-area: footer;
 }
 
+/* Navigation page */
+
+.pageNavigationArticles {
+    display: grid;
+    grid-column-gap: 2%;
+    grid-row-gap: 3vh;
+    grid-template-columns: 1fr 16% 40% 22% 1fr;
+    grid-template-rows: 15vh auto auto 20vh;
+    grid-template-areas:
+    "header header header header header"
+    "navigation navigation navigation navigation navigation"
+    ". searchSlider searchMain sidebar ."
+    ". footer footer footer ."
+}
 
 /* Navigation */
 
@@ -239,13 +418,14 @@ body,
 }
 
 .NavigationFollow span {
-    padding-left: 10px;
+    padding-left: 9px;
     font-weight: 700;
 }
 
 .NavigationFollow {
+    cursor: pointer;
     text-shadow: 0px 0px .5px rgb(0, 0, 0);
-    padding: 15px 11px;
+    padding: 15px 12px;
     color: #999;
     text-transform: uppercase;
     font-style: normal;
@@ -277,26 +457,23 @@ body,
 }
 
 .SocialIconsNavigation ul {
-    font-size: 12px;
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.SocialIconsNavigation ul li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    font-weight: 500;
-    font-style: normal;
-}
-
 .SocialIconsNavigation span {
-    padding-left: 15px;
+    padding-left: 9px;
 }
 
 .SocialIconsNavigation ul li {
-    padding: 7px 11px;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    padding: 7px 15px;
     border-bottom: 1px solid #4d4d4d;
 }
 
@@ -304,27 +481,27 @@ body,
     border-top: 1px solid #4d4d4d;
 }
 
-.SocialIconsNavigation ul li:nth-child(1):hover {
+.SocialIconsNavigation ul a:nth-child(1) > li:hover {
     background: rgb(255, 0, 0);
 }
 
-.SocialIconsNavigation ul li:nth-child(2):hover {
+.SocialIconsNavigation ul a:nth-child(2) > li:hover {
     background: #00a1e0;
 }
 
-.SocialIconsNavigation ul li:nth-child(3):hover {
+.SocialIconsNavigation ul a:nth-child(3) > li:hover {
     background: #c911a1;
 }
 
-.SocialIconsNavigation ul li:nth-child(4):hover {
+.SocialIconsNavigation ul a:nth-child(4) > li:hover {
     background: #284175;
 }
 
-.SocialIconsNavigation ul li:nth-child(5):hover {
+.SocialIconsNavigation ul a:nth-child(5) > li:hover {
     background: #4c9aec;
 }
 
-.SocialIconsNavigation ul li:nth-child(6):hover {
+.SocialIconsNavigation ul a:nth-child(6) > li:hover {
     background: #c8232c;
 }
 
@@ -341,11 +518,12 @@ body,
 
 .NavigationSearchIcon {
     padding: 15px 20px;
+    cursor: pointer;
 }
 
 .NavigationSearchForm {
     position: absolute;
-    left: -200px;
+    left: -228px;
 }
 
 .inputFormNavigation {
@@ -380,9 +558,21 @@ body,
     "buttonFormNavigation inputFormNavigation" 
 }
 
+.LogoNavigation {
+    position: relative;
+    grid-area: logoNavigation;
+}
+
+.LogoNavigation img {
+    cursor: pointer;
+    top: -11px;
+    left: 78px;
+    position: absolute;
+    width: 10vw;
+}
+
 .Navigation {
     grid-area: navigation;
-    margin: 0 -1%;
     position: relative;
     top: -3vh;
 }
@@ -390,10 +580,11 @@ body,
 .NavigationSection {
     border-bottom: 1px solid white;
     display: grid;
+    grid-column-gap: .6%;
     background: #3f3f3f;
     grid-template-columns: 1fr 40% 29% 8% 3% 1fr;
     grid-template-areas: 
-    ". navigationForm navigationForm followContainer navigationSearch ." 
+    ". navigationForm logoNavigation followContainer navigationSearch ." 
 }
 
 .NavigationForm h2 {
@@ -470,24 +661,14 @@ body,
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
     grid-template-columns: 1fr 60% 20% 1fr;
-    grid-template-rows: 15vh auto auto auto 20vh;
+    grid-template-rows: 15vh auto auto auto auto 20vh;
     grid-template-areas: 
     "header header header header" 
     "navigation navigation navigation navigation"
     ". slider slider ." 
     ". main sidebar ." 
+    ". navigationFooter navigationFooter ."
     ". footer footer ."
-}
-
-.article {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 10% auto;
-    grid-template-areas:
-    "MainArticlesTitle MainArticlesTitle" 
-    "mainDivOdd mainDivEven"
 }
 
 .IndexButton {
@@ -539,10 +720,11 @@ body,
     display: grid;
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
-    grid-template-columns: 1fr 67% 27% 1fr;
+    grid-template-columns: 1fr 60% 20% 1fr;
     grid-template-rows: 15vh auto auto 20vh;
     grid-template-areas:
     "header header header header"
+    "navigation navigation navigation navigation"
     ". pageMain sidebar ."
     ". sliderNeedSee sidebar ."
     ". footer footer ."
@@ -737,10 +919,11 @@ body,
     display: grid;
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
-    grid-template-columns: 1fr 19% 47% 26% 1fr;
-    grid-template-rows: 15vh auto 20vh;
+    grid-template-columns: 1fr 16% 40% 22% 1fr;
+    grid-template-rows: 15vh auto auto 20vh;
     grid-template-areas:
     "header header header header header"
+    "navigation navigation navigation navigation navigation"
     ". searchSlider searchMain sidebar ."
     ". footer footer footer ."
 }
@@ -751,7 +934,7 @@ body,
 
 .searchContainer img {
     grid-area: searchImg;
-    width: 25vw;
+    width: 20vw;
 }
 
 .searchResult {
@@ -801,18 +984,103 @@ body,
 
 .footer p {
     grid-area: footerReserved;
-    border-top: 1px solid rgba(0, 0, 0, 0.336);
+    border-top: 1px solid #e3e3e3;
     padding: 1% 0 3% 0;
 }
 
 .footer {
     display: grid;
-    border-top: 1px solid rgba(0, 0, 0, 0.336);
     grid-template-columns: 60% 40% ;
     grid-template-rows: 70% 30%;
     grid-template-areas:
     "footerImg social"
     "footerReserved footerReserved"
+}
+
+.NavigationFooter {
+    grid-area: navigationFooter;
+}
+
+.BottomNavigationForm {
+    width: 100%;
+    grid-area: bottomNavigationForm;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.BottomNavigationSection {
+    border-bottom: 1px solid white;
+    display: grid;
+    grid-column-gap: .6%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "bottomNavigationForm bottomNavigationForm" 
+}
+
+.BottomNavigationForm h2 {
+    margin: 2% 0 0 0;
+    display: inline-block;
+    padding: 15px 25px;
+    color: #222222;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.BottomNavigationForm h2:nth-child(1) {
+    border-bottom: 1px solid black;
+}
+
+.BottomNavigationForm h2:nth-child(2) {
+    border-bottom: 1px solid red;
+}
+
+.BottomNavigationForm h2:nth-child(3) {
+    border-bottom: 1px solid rgb(187, 255, 0);
+}
+
+.BottomNavigationForm h2:nth-child(4) {
+    border-bottom: 1px solid orange;
+}
+
+.BottomNavigationForm h2:nth-child(5) {
+    border-bottom: 1px solid rgb(0, 162, 255);
+}
+
+.BottomNavigationForm h2:nth-child(6) {
+    border-bottom: 1px solid green;
+}
+
+.BottomNavigationForm h2:nth-child(7) {
+    border-bottom: 1px solid rgb(255, 192, 229);
+}
+
+.BottomNavigationForm h2:nth-child(1):hover {
+   color: rgb(59, 59, 59);
+}
+
+.BottomNavigationForm h2:nth-child(2):hover {
+    color: rgb(206, 0, 0);
+}
+
+.BottomNavigationForm h2:nth-child(3):hover {
+    color: rgb(135, 184, 0);
+}
+
+.BottomNavigationForm h2:nth-child(4):hover {
+    color: rgb(185, 121, 0);
+}
+
+.BottomNavigationForm h2:nth-child(5):hover {
+    color: rgb(0, 110, 173);
+}
+
+.BottomNavigationForm h2:nth-child(6):hover {
+    color: rgb(0, 95, 0);
+}
+
+.BottomNavigationForm h2:nth-child(7):hover {
+    color: rgb(184, 133, 163);
 }
 
 /* @media */
@@ -957,7 +1225,7 @@ body,
         grid-template-columns: 50% 50%;
         grid-template-rows: 10% auto;
         grid-template-areas:
-        "MainArticlesTitle MainArticlesTitle" 
+        "MainArticlesTitle social" 
         "mainDivOdd mainDivEven"
     }
 
@@ -1021,7 +1289,7 @@ body,
 
     /* Article page */
 
-    .Tags p{
+    .Tags p {
         display: inline-block;
         border: 2px solid black;
         padding: 3px 3px;
@@ -1182,23 +1450,6 @@ body,
         left: 79%;
         top: 6px;
         font-size: 10px;
-    }
-
-    .articleCount {
-        font-size: 13px;
-    }
-
-    .articleTitle h3 {
-        font: 600 15px/19px 'Roboto Condensed', sans-serif;
-        padding-bottom: 5%;
-    }
-
-    .articleSlider {
-        font: 600 15px/18px 'Roboto Condensed', sans-serif;
-    }
-
-    .articleTitle h4 {
-        padding-bottom: 8%;
     }
 
     .Logo {

@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import ArticlesList from '../containers/ArticlesList'
 import AsideArticlesList from '../containers/AsideArticlesList'
 import SearchForm from '../components/SearchForm'
+import NavigationForm from '../components/NavigationForm'
 import Social from '../components/Social'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
@@ -12,12 +13,31 @@ import css from '../style.css'
 
 
 class Article extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            logoScroll: false
+        }
+    }
     render() {
+        const handleStateChange = (status) => {
+            if (status.status === Sticky.STATUS_FIXED) {
+                this.setState({logoScroll: true});
+            } else {
+                this.setState({logoScroll: false})
+            }
+        }
         return (
             <div className={css.pageContainerNeedSee}>
                 <header className={css.header}>
                     <Header />
                 </header>
+                <nav className={css.Navigation}> 
+                    <Sticky onStateChange={handleStateChange} innerZ={999}>
+                        <NavigationForm logoScroll={this.state.logoScroll}/>
+                    </Sticky>
+                </nav> 
                 <main className={css.pageMain}>
                     <article className={css.pageArticle}>
                         <ArticlesList dataArticle={this.props.dataArticle} />

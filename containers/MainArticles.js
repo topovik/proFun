@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import IndexArticles from '../components/IndexArticles'
+import Social from '../components/Social'
 import css from '../style.css'
 
 
@@ -13,14 +14,19 @@ class MainArticles extends Component {
                 key={t[0].id}
                 item={t[0]}
                 count={t[0].count}
+                navigation={t[0].navigation}
             />
         })
         return (
             <React.Fragment>
-                <h1 className={css.MainArticlesTitle}>Новые записи</h1>
-                <React.Fragment>
+                <section className={css.MainArticlesTitle}>
+                    <h1>Новые записи</h1>
+                    <span></span>    
+                    <Social />
+                </section>
+                <div className={css.articlesList}>
                     {mainList}
-                </React.Fragment>
+                </div>
             </React.Fragment>
         )
     }

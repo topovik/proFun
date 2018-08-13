@@ -3,11 +3,11 @@ import fetch from 'isomorphic-unfetch'
 import MainArticles from '../containers/MainArticles'
 import AsideArticlesList from '../containers/AsideArticlesList'
 import SliderArticlesList from '../containers/SliderArticlesList'
-import SearchForm from '../components/SearchForm'
 import Social from '../components/Social'
 import Footer from '../containers/Footer'
 import Header from '../containers/Header'
 import NavigationForm from '../components/NavigationForm'
+import BottomNavigationForm from '../components/NavigationBottomForm'
 import Sticky from 'react-stickynode'
 import css from "../style.css"
 
@@ -16,19 +16,27 @@ class Index extends Component {
         super(props)
 
         this.state = {
-            art: this.props.articles
+            art: this.props.articles,
+            logoScroll: false
         }
     }
 
     render() {
+        const handleStateChange = (status) => {
+            if (status.status === Sticky.STATUS_FIXED) {
+                this.setState({logoScroll: true});
+            } else {
+                this.setState({logoScroll: false})
+            }
+        }
         return (
             <div className={css.container}>
                 <header className={css.header}>
                     <Header />
                 </header>
                 <nav className={css.Navigation}> 
-                    <Sticky innerZ={999}>
-                       <NavigationForm />
+                    <Sticky onStateChange={handleStateChange} innerZ={999}>
+                       <NavigationForm logoScroll={this.state.logoScroll}/>
                     </Sticky>
                 </nav> 
                 <section className={css.MainSlider}>
@@ -45,6 +53,9 @@ class Index extends Component {
                         <AsideArticlesList asideArticles={this.props.asideArticles} />
                     </Sticky>
                 </aside>
+                <nav className={css.NavigationFooter}>
+                    <BottomNavigationForm />
+                </nav>
                 <footer className={css.footer}>
                     <Footer />
                 </footer>
@@ -63,7 +74,8 @@ class Index extends Component {
                     title: object.title,
                     images: object.images,
                     id: object.id,
-                    count: object.count
+                    count: object.count,
+                    navigation: object.navigation
                 }]
             }))
         this.setState({ art: this.state.art.concat(tt) })
@@ -79,7 +91,8 @@ Index.getInitialProps = async () => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))
 
@@ -90,7 +103,8 @@ Index.getInitialProps = async () => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))
 
@@ -101,7 +115,8 @@ Index.getInitialProps = async () => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))   
         
