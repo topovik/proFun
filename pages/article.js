@@ -7,7 +7,8 @@ import NavigationForm from '../components/NavigationForm'
 import Social from '../components/Social'
 import Header from '../containers/Header'
 import Footer from '../containers/Footer'
-import MainSliderArticlesList from '../containers/MainSliderArticlesList'
+import SliderNeedSee from '../containers/SliderNeedSee'
+import BottomNavigationForm from '../components/NavigationBottomForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
@@ -33,7 +34,7 @@ class Article extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
-                <nav className={css.Navigation}> 
+                <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
                         <NavigationForm logoScroll={this.state.logoScroll}/>
                     </Sticky>
@@ -44,13 +45,16 @@ class Article extends Component {
                     </article>
                 </main>
                 <aside className={css.aside} id="aside">
-                    <Sticky bottomBoundary='#aside'>
+                    <Sticky bottomBoundary="#aside" top='#navigation'>
                         <AsideArticlesList asideArticles={this.props.asideArticles} />
                     </Sticky>  
                 </aside>
                 <section className={css.SliderNeedSee}>
-                    <MainSliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    <SliderNeedSee sliderArticles={this.props.sliderArticles} />
                 </section>
+                <nav className={css.NavigationFooter}>
+                    <BottomNavigationForm />
+                </nav>
                 <footer className={css.footer}>
                     <Footer />
                 </footer>
@@ -141,7 +145,8 @@ Article.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))
 
@@ -152,7 +157,8 @@ Article.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         })) 
 

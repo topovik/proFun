@@ -34,7 +34,7 @@ class Index extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
-                <nav className={css.Navigation}> 
+                <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
                        <NavigationForm logoScroll={this.state.logoScroll}/>
                     </Sticky>
@@ -44,12 +44,12 @@ class Index extends Component {
                 </section>
                 <main className={css.main}>
                     <article className={css.article}>
-                        <MainArticles art={this.state.art} articles={this.props.articles} nextArticles={this.props.nextArticles} />
+                        <MainArticles art={this.state.art} />
                     </article>
                     <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
                 </main>
                 <aside className={css.aside} id="aside">
-                    <Sticky bottomBoundary='#aside'>
+                    <Sticky bottomBoundary='#aside' top='#navigation'>
                         <AsideArticlesList asideArticles={this.props.asideArticles} />
                     </Sticky>
                 </aside>

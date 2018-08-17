@@ -7,6 +7,7 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import AsideArticlesList  from '../containers/AsideArticlesList'
 import SearchSliderArticlesList from '../containers/SearchSliderArticlesList'
+import BottomNavigationForm from '../components/NavigationBottomForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
@@ -31,13 +32,13 @@ class Search extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
-                <nav className={css.Navigation}> 
+                <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
                         <NavigationForm logoScroll={this.state.logoScroll}/>
                     </Sticky>
                 </nav> 
                 <section className={css.SearchSlider} id="slider">
-                    <Sticky enabled={true} bottomBoundary='#slider'>
+                    <Sticky bottomBoundary='#slider' top='#navigation'>
                         <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
                     </Sticky>
                 </section>
@@ -46,9 +47,14 @@ class Search extends Component {
                         <SearchList srchtxt={this.props.srchtxt} />
                     </article>
                 </main>
-                <aside className={css.aside}>
-                    <AsideArticlesList asideArticles={this.props.asideArticles}/>
+                <aside className={css.aside} id="aside">
+                    <Sticky bottomBoundary='#aside' top='#navigation'>
+                        <AsideArticlesList asideArticles={this.props.asideArticles} />
+                    </Sticky>  
                 </aside>
+                <nav className={css.NavigationFooter}>
+                    <BottomNavigationForm />
+                </nav>
                 <footer className={css.footer}>
                     <Footer />
                 </footer>
@@ -68,7 +74,8 @@ Search.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }
         }))
 
@@ -85,7 +92,8 @@ Search.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))
 
@@ -96,7 +104,8 @@ Search.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         })) 
 

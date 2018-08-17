@@ -7,6 +7,7 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import AsideArticlesList  from '../containers/AsideArticlesList'
 import SearchSliderArticlesList from '../containers/SearchSliderArticlesList'
+import BottomNavigationForm from '../components/NavigationBottomForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
@@ -15,9 +16,12 @@ class Navigation extends Component {
         super(props)
 
         this.state = {
-            logoScroll: false
+            art: this.props.navigation,
+            logoScroll: false,
+            navigationTxt: this.props.backNavigation
         }
     }
+
     render() {
         const handleStateChange = (status) => {
             if (status.status === Sticky.STATUS_FIXED) {
@@ -32,24 +36,30 @@ class Navigation extends Component {
                 <header className={css.header}>
                     <Header />
                 </header>
-                <nav className={css.Navigation}> 
+                <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
                         <NavigationForm backNavigation={this.props.backNavigation} logoScroll={this.state.logoScroll}/>
                     </Sticky>
                 </nav>
                 <section className={css.SearchSlider} id="slider">
-                    <Sticky enabled={true} bottomBoundary='#slider'>
+                    <Sticky bottomBoundary='#slider' top='#navigation'>
                         <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
                     </Sticky>
                 </section>
                 <main className={css.pageSearchMain}>
                     <article className={css.SearchArticle}>
-                        <NavigationList navigation={this.props.navigation} />
+                        <NavigationList navigation={this.state.art} />
                     </article>
+                    <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
                 </main>
-                <aside className={css.aside}>
-                    <AsideArticlesList asideArticles={this.props.asideArticles}/>
+                <aside className={css.aside} id="aside">
+                    <Sticky bottomBoundary='#aside' top='#navigation'>
+                        <AsideArticlesList asideArticles={this.props.asideArticles} />
+                    </Sticky>  
                 </aside>
+                <nav className={css.NavigationFooter}>
+                    <BottomNavigationForm />
+                </nav>
                 <footer className={css.footer}>
                     <Footer />
                 </footer>
@@ -57,27 +67,39 @@ class Navigation extends Component {
         )
     }
 
+    async onClick() {
+        let countArticles = this.props.navigation.length;
+        let navigationTxt = this.state.navigationTxt
+        console.log(this.props.navigation, this.props.navigationTxt)
+        let tt = await fetch(`http://localhost:3000/api/${navigationTxt}/${countArticles}/nextnavigation`)
+            .then(response => response.json())
+            .then(item => item.map(object => {
+                return [{
+                    title: object.title,
+                    images: object.images,
+                    id: object.id,
+                    count: object.count,
+                    navigation: object.navigation
+                }]
+            }))
+            this.setState({art: this.props.navigation.concat(tt)})
+    }
+
 }
 
 Navigation.getInitialProps = async (req) => {
     let navigationText = String(req.query.text);
-    const data = await fetch(`http://localhost:3000/api/mainarticles`)
+    const data = await fetch(`http://localhost:3000/api/${navigationText}/navigation`)
         .then(response => response.json())
         .then(item => item.map(object => {
-            return {
+            return [{
                 title: object.title,
                 images: object.images,
                 id: object.id,
                 count: object.count,
                 navigation: object.navigation
-            }
+            }]
         }))
-
-        let answer = data.filter(t => {
-            if(t.navigation === navigationText) {
-                return t
-            }
-        })
 
         const dataAside = await fetch('http://localhost:3000/api/asidearticles')
         .then(response => response.json())
@@ -86,7 +108,8 @@ Navigation.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         }))
 
@@ -97,12 +120,13 @@ Navigation.getInitialProps = async (req) => {
                 title: object.title,
                 images: object.images,
                 id: object.id,
-                count: object.count
+                count: object.count,
+                navigation: object.navigation
             }]
         })) 
 
     return {
-        navigation: answer,
+        navigation: data,
         asideArticles: dataAside,
         sliderArticles: dataSlider,
         backNavigation: navigationText

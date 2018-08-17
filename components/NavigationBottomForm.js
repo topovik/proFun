@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'next/link'
+import ScrollToTop from "react-scroll-up"
 import css from "../style.css"
 
 class BottomNavigationForm extends Component {
@@ -28,6 +29,11 @@ class BottomNavigationForm extends Component {
                     <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }}>
                         <h2>Other</h2>
                     </Link>
+                </div>
+                <div className={css.ButtonToTop}>
+                    <ScrollToTop duration={1000} showUnder={160} style={{position: 'none'}}>
+                        <span>BACK TO TOP</span><i className="fa fa-arrow-up" aria-hidden="true"></i>
+                    </ScrollToTop>
                 </div>
             </div>
         )

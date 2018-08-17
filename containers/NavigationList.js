@@ -6,23 +6,28 @@ class NavigationList extends Component {
     render() {
         const navigationList = this.props.navigation.map(t => {
             return <NavigationArticles
-                title={t.title}
-                images={t.images}
-                key={t.id}
-                item={t}
-                count={t.count}
-                navigation={t.navigation}
+                title={t[0].title}
+                images={t[0].images}
+                key={t[0].id}
+                item={t[0]}
+                count={t[0].count}
+                navigation={t[0].navigation}
             />
         })
 
-        const navigationTitle = this.props.navigation.map(t => {
-            return <h1 key={t.id}>{t.navigation}</h1>
+        const navigationTitle = this.props.navigation.map(r => {
+            return <h1 key={r[0].id}>{r[0].navigation}</h1>
         })
 
         return (
             <React.Fragment>
-                {navigationTitle}
-                {navigationList}
+                <div className={css.searchResultContainer}>
+                    {navigationTitle[0]}
+                    <span></span>
+                </div>
+                <div className={css.SearchList}>
+                    {navigationList}
+                </div>
             </React.Fragment>
         )
     }

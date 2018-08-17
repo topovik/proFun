@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'next/link'
 import css from '../style.css'
 
-class SliderArticles extends Component {
+class SliderArticlesSearch extends Component {
     render() {
         let backColor;
         switch(this.props.navigation) {
@@ -98,7 +98,7 @@ class SliderArticles extends Component {
         return (
             <React.Fragment>
                 <Link prefetch href={{ pathname: '/article', query: { id: this.props.item.id } }}>
-                    <div className={css.articleSliderContainer}>
+                    <div className={css.articleSliderSearchContainer}>
                         {backColor}
                         <img className={css.MainSliderImg} src={this.props.images} alt={this.props.title} />
                         {backHover}
@@ -111,4 +111,4 @@ class SliderArticles extends Component {
 }
 
 
-export default SliderArticles
+export default SliderArticlesSearch

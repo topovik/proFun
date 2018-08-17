@@ -17,10 +17,13 @@ class AsideArticlesList extends Component {
         })
         return (
             <React.Fragment>
-                <h2 className={css.asideTitle}>Популярное ...</h2>
-                <React.Fragment> 
+                <div className={css.AsideTitle}>
+                    <h3>Популярное ...</h3>
+                    <span></span>
+                </div>
+                <div className={css.AsideList}> 
                     {asideList}
-                </React.Fragment>
+                </div>
             </React.Fragment>
         )
     }

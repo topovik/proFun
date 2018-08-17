@@ -2,23 +2,23 @@ import React, { Component } from 'react'
 import SliderArticles from '../components/SliderArticles'
 import Carousel from 'nuka-carousel'
 import css from '../style.css'
+import SliderArticlesSearch from '../components/SliderArticlesSearch'
 
 class SearchSliderArticlesList extends Component {
     render() {
         const sliderList = this.props.sliderArticles.map(t => {
-            return <SliderArticles
+            return <SliderArticlesSearch
                 title={t[0].title}
                 images={t[0].images}
                 key={t[0].id}
                 item={t[0]}
                 count={t[0].count}
+                navigation={t[0].navigation}
             />
         })
         return (
             <React.Fragment>
-                <h3 className={css.searchMustSee}>Must see ...</h3>
-                <Carousel slidesToShow={4} cellAlign="left" vertical={true} wrapAround={false} 
-                    framePadding="2px 0px"
+                <Carousel slidesToShow={4} cellAlign="left" vertical={true} 
                     renderCenterLeftControls={({ previousSlide }) => (
                         <React.Fragment></React.Fragment>
                     )}

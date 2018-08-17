@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Link from 'next/link'
 import css from '../style.css'
 
-
-
 class SearchArticles extends Component {
 
     render() {
