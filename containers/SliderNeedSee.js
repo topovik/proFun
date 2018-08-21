@@ -16,22 +16,21 @@ class SliderNeedSee extends Component {
             />
         })
         return (
-            <div className={css.MainSliderContainer}>
-                    <Carousel slidesToShow={3} cellAlign="left"
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        autoplay={true}
+                <Carousel slidesToShow={3} cellAlign="left" autoplay={true}
+                    cellSpacing={6}
+                    renderCenterLeftControls={({ previousSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
+                    renderCenterRightControls={({ nextSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
+                    renderBottomCenterControls={({ goToSlide }) => (
+                        <React.Fragment></React.Fragment>
+                    )}
                     >
-                        {sliderList}
-                    </Carousel>
-            </div>
+                    {sliderList}
+                </Carousel>
+
         )
     }
 }

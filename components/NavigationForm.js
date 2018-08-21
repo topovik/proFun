@@ -25,10 +25,10 @@ class NavigationForm extends Component {
 
         let logoDisplay;
         this.props.logoScroll === false
-            ? logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ display: "none" }} src="/static/proFun_Logo.png" alt="logo" /></Link>
-            : logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ display: "inline-block" }} src="/static/proFun_Logo.png" alt="logo" /></Link>
+            ? logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '0', zIndex: '-100'}} src="/static/proFun_Logo.png" alt="logo" /></Link>
+            : logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '1' }} src="/static/proFun_Logo.png" alt="logo" /></Link>
         return (
-            <div className={css.NavigationSection}>
+            <div className={css.NavigationSectionContainer}>
                 <div className={css.NavigationForm}>
                     <Link prefetch href={{ pathname: '/' }}>
                         <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>

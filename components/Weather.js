@@ -27,7 +27,6 @@ class Weather extends Component {
                     <span className={css.WeatherTemp}>{this.props.weather.temp|0}
                         <span className={css.WeatherC}>°C</span>
                     </span>
-                    
                 </div>
         )
     }

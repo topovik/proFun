@@ -21,6 +21,12 @@ body,
     margin-top: -3vh;
 }
 
+.MainSliderContainer {
+    width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .MainSliderOne {
     display: block;
 }
@@ -90,14 +96,14 @@ body,
 }
 
 .articleSliderContainer {
-    width: 20.2vw;
+    width: 362px;
     position: relative;
 }
 
 .MainSliderImg {
     display: grid;
     cursor: pointer;
-    width: 20.2vw;
+    width: 362px;
 }
 
 .header {
@@ -107,7 +113,6 @@ body,
     top: .1px;
     z-index: 105;
     background: #444;
-    border-bottom: 1px solid #4d4d4d;
 }
 
 .main {
@@ -247,14 +252,14 @@ body,
 }
 
 .articleContainer {
-    width: 27vw;
+    width: 490px;
     position: relative;
 }
 
 .MainArticleImg {
     display: grid;
     cursor: pointer;
-    width: 27vw;
+    width: 490px;
 }
 
 .articles div:nth-child(odd) {
@@ -406,6 +411,7 @@ body,
     grid-area: footer;
 }
 
+
 /* Navigation page */
 
 .pageNavigationArticles {
@@ -554,7 +560,7 @@ body,
     position: relative;
     grid-area: navigationSearch;
     align-self: center;
-    justify-self: start;
+    justify-self: end;
     border-left: 1px solid #4d4d4d;
     border-right: 1px solid #4d4d4d;
 }
@@ -607,27 +613,31 @@ body,
 }
 
 .LogoNavigation img {
+    transition: ease .5s;
     cursor: pointer;
-    top: -11px;
-    left: 78px;
+    top: -10px;
+    bottom: 0;
+    left: 15px;
     position: absolute;
-    width: 10vw;
+    width: 65%;
 }
 
 .Navigation {
     grid-area: navigation;
     position: relative;
     top: -3vh;
+    background: #3f3f3f;
 }
 
-.NavigationSection {
-    border-bottom: 1px solid white;
+.NavigationSectionContainer {
+    width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
-    grid-column-gap: .6%;
     background: #3f3f3f;
-    grid-template-columns: 1fr 40% 29% 8% 3% 1fr;
+    grid-template-columns: 60% 20% 15% 5%;
     grid-template-areas: 
-    ". navigationForm logoNavigation followContainer navigationSearch ." 
+    "navigationForm logoNavigation followContainer navigationSearch" 
 }
 
 .NavigationForm h2 {
@@ -699,6 +709,21 @@ body,
     background: rgb(184, 133, 163);
 }
 
+.IndexContainer {
+    grid-area: indexContainer;
+}
+
+.MainAsideContainer {
+    display: grid;
+    grid-column-gap: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1450px;
+    grid-template-columns: 1fr 65% 15% 1fr;
+    grid-template-areas: 
+    "main main sidebar sidebar" 
+}
+
 .container {
     display: grid;
     grid-column-gap: 2%;
@@ -708,10 +733,10 @@ body,
     grid-template-areas: 
     "header header header header" 
     "navigation navigation navigation navigation"
-    ". slider slider ." 
-    ". main sidebar ." 
-    ". navigationFooter navigationFooter ."
-    ". footer footer ."
+    "slider slider slider slider" 
+    "indexContainer indexContainer indexContainer indexContainer" 
+    "navigationFooter navigationFooter navigationFooter navigationFooter"
+    "footer footer footer footer"
 }
 
 .IndexButton {
@@ -738,6 +763,7 @@ body,
     grid-area: pageMain;
     box-shadow: 0 0 12px 0 #ccc;
     text-align: justify;
+    margin-bottom: 2%;
 }
 
 .pageArticle img {
@@ -745,24 +771,50 @@ body,
 }
 
 .pageArticle div {
-    margin: 2% 7%;
+    margin: 4% 4%;
 }
 
 .SliderNeedSee {
     position: relative;
+    align-self: end;
     grid-area: sliderNeedSee;
     font: 16px/20px 'Roboto Condensed', sans-serif;
 }
 
 .articleSliderNeedSeeContainer {
     position: relative;
-    width: 19.6vw;
+    width: 358px;
 }
 
 .articleSliderNeedSeeContainer img {
     display: grid;
     cursor: pointer;
-    width: 19.6vw;
+    width: 358px;
+}
+
+.IndexArticlesContainer {
+    grid-area: indexArticlesContainer;
+}
+
+.pageMainSliderContainer {
+    grid-area: pageMainSliderContainer;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+    "pageMain"
+    "sliderNeedSee"
+}
+
+.pageMainAsideContainer {
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-gap: 2%;
+    display: grid;
+    width: 1450px;
+    grid-template-columns: 1fr 65% 15% 1fr;
+    grid-template-areas:
+    "pageMainSliderContainer pageMainSliderContainer sidebar sidebar"
 }
 
 .pageContainerNeedSee {
@@ -770,12 +822,11 @@ body,
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
     grid-template-columns: 1fr 60% 20% 1fr;
-    grid-template-rows: 15vh auto auto auto auto 20vh;
+    grid-template-rows: 15vh auto auto auto 20vh;
     grid-template-areas:
     "header header header header"
     "navigation navigation navigation navigation"
-    ". pageMain sidebar ."
-    ". sliderNeedSee sidebar ."
+    "indexArticlesContainer indexArticlesContainer indexArticlesContainer indexArticlesContainer"
     ". navigationFooter navigationFooter ."
     ". footer footer ."
 }
@@ -834,7 +885,7 @@ body,
 
 .Logo {
     grid-area: logo;
-    width: 15vw;
+    width: 285px;
     cursor: pointer;
     justify-self: start;
 }
@@ -884,18 +935,24 @@ body,
     opacity: 1;
     transition: ease 1s;
     grid-template-columns: 50% 25% 25%;
-    grid-template-rows: 6vh 9vh;
+    grid-template-rows: 40px 60px;
     grid-template-areas:
     "weatherCity weatherCity ."
     "weatherTemp weatherImg weatherImg"
 }
 
-.header {
+.headerContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5vh;
+    width: 1450px;
+    align-self: center;
     display: grid;
+    grid-area: headerContainer;
     align-items: center;
-    grid-template-columns: auto 20% 25% 20% 16% auto;
+    grid-template-columns: 25% 30% 25% 20%;
     grid-template-areas:
-    ". logo search social weather ."
+    "logo search social weather"
 }
 
 /*Social*/
@@ -1064,10 +1121,13 @@ body,
 .footer p {
     grid-area: footerReserved;
     border-top: 1px solid #e3e3e3;
-    padding: 1% 0 3% 0;
+    padding: 1% 0 0 0;
 }
 
-.footer {
+.FooterContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1450px;
     display: grid;
     grid-template-columns: 60% 40% ;
     grid-template-rows: 70% 30%;
@@ -1102,9 +1162,11 @@ body,
 }
 
 .BottomNavigationSection {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1450px;
     border-bottom: 1px solid white;
     display: grid;
-    grid-column-gap: .6%;
     grid-template-columns: 50% 42% 8%;
     grid-template-areas: 
     "bottomNavigationForm bottomNavigationForm buttonToTop" 
@@ -1179,7 +1241,7 @@ body,
 
 /* @media */
 
-@media (min-width: 750px) and (max-width: 1050px) {
+@media (max-width: 1185px) {
     .header {
         display: grid;
         align-items: center;
@@ -1218,7 +1280,7 @@ body,
     }
 
     .Logo {
-        width: 20vw;
+        width: 285px;
     }
 
     .inputForm {
@@ -1228,7 +1290,18 @@ body,
     }
 
     .container {
-        grid-template-rows: 14vh auto auto 16vh;
+        display: grid;
+        grid-column-gap: 2%;
+        grid-row-gap: 3vh;
+        grid-template-columns: 5% 65% 25% 5%;
+        grid-template-rows: 14vh auto auto auto auto 16vh;
+        grid-template-areas: 
+        "header header header header" 
+        "navigation navigation navigation navigation"
+        "slider slider slider slider" 
+        "main main sidebar sidebar" 
+        "navigationFooter navigationFooter navigationFooter navigationFooter"
+        "footer footer footer footer"
     }
 
     .Weather {
@@ -1466,7 +1539,7 @@ body,
         grid-area: three;
     }
 
-    .MainSliderContainer {
+    .MainSliderContainerSection {
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
@@ -1646,7 +1719,7 @@ body,
         display: none;
     }
 
-    .MainSliderContainer {
+    .MainSliderContainerSection {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: auto;

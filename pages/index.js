@@ -32,32 +32,46 @@ class Index extends Component {
         return (
             <div className={css.container}>
                 <header className={css.header}>
-                    <Header />
+                    <div className={css.headerContainer}>
+                        <Header />
+                    </div>
                 </header>
                 <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
-                       <NavigationForm logoScroll={this.state.logoScroll}/>
+                        <div className={css.NavigationSection}>
+                            <NavigationForm logoScroll={this.state.logoScroll}/>
+                       </div>
                     </Sticky>
                 </nav> 
                 <section className={css.MainSlider}>
-                    <SliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    <div className={css.MainSliderContainer}>
+                        <SliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    </div>
                 </section>
-                <main className={css.main}>
-                    <article className={css.article}>
-                        <MainArticles art={this.state.art} />
-                    </article>
-                    <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
-                </main>
-                <aside className={css.aside} id="aside">
-                    <Sticky bottomBoundary='#aside' top='#navigation'>
-                        <AsideArticlesList asideArticles={this.props.asideArticles} />
-                    </Sticky>
-                </aside>
+                <div className={css.IndexContainer}>
+                    <div className={css.MainAsideContainer}>
+                        <main className={css.main}>
+                            <article className={css.article}>
+                                <MainArticles art={this.state.art} />
+                            </article>
+                            <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
+                        </main>
+                        <aside className={css.aside} id="aside">
+                            <Sticky bottomBoundary='#aside' top='#navigation'>
+                                <AsideArticlesList asideArticles={this.props.asideArticles} />
+                            </Sticky>
+                        </aside>
+                    </div>
+                </div>    
                 <nav className={css.NavigationFooter}>
-                    <BottomNavigationForm />
+                    <div className={css.BottomNavigationSection}>
+                        <BottomNavigationForm />
+                    </div>
                 </nav>
                 <footer className={css.footer}>
-                    <Footer />
+                    <div className={css.FooterContainer}>
+                        <Footer />
+                    </div>
                 </footer>
             </div>
 

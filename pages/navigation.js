@@ -30,6 +30,9 @@ class Navigation extends Component {
                 this.setState({logoScroll: false})
             }
         }
+        
+        let seeMore;
+        this.state.navigationTxt !== this.props.backNavigation ? seeMore = this.props.navigation : seeMore = this.state.art
 
         return (
             <div className={css.pageNavigationArticles}>
@@ -48,7 +51,7 @@ class Navigation extends Component {
                 </section>
                 <main className={css.pageSearchMain}>
                     <article className={css.SearchArticle}>
-                        <NavigationList navigation={this.state.art} />
+                        <NavigationList navigation={seeMore} />
                     </article>
                     <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
                 </main>
@@ -69,8 +72,7 @@ class Navigation extends Component {
 
     async onClick() {
         let countArticles = this.props.navigation.length;
-        let navigationTxt = this.state.navigationTxt
-        console.log(this.props.navigation, this.props.navigationTxt)
+        let navigationTxt = this.props.backNavigation
         let tt = await fetch(`http://localhost:3000/api/${navigationTxt}/${countArticles}/nextnavigation`)
             .then(response => response.json())
             .then(item => item.map(object => {
@@ -82,7 +84,7 @@ class Navigation extends Component {
                     navigation: object.navigation
                 }]
             }))
-            this.setState({art: this.props.navigation.concat(tt)})
+        this.setState({art: this.props.navigation.concat(tt), navigationTxt: this.props.backNavigation})    
     }
 
 }

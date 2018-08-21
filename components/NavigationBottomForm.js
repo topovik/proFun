@@ -6,7 +6,7 @@ import css from "../style.css"
 class BottomNavigationForm extends Component {
     render() {
         return (
-            <div className={css.BottomNavigationSection}>
+            <React.Fragment>
                 <div className={css.BottomNavigationForm}>
                     <Link prefetch href={{ pathname: '/' }}>
                         <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
@@ -35,7 +35,7 @@ class BottomNavigationForm extends Component {
                         <span>BACK TO TOP</span><i className="fa fa-arrow-up" aria-hidden="true"></i>
                     </ScrollToTop>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }

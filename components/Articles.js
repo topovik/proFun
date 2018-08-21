@@ -256,8 +256,8 @@ const Articles = ({
         p59.trim().slice(0, 1) === '/' ? test60 = <img src={p59} alt="" /> : test60 = <p>{p59}</p>
     }
 
-    testTags = tags.map(t => {
-        return <p>{t}</p>
+    testTags = tags.map((t, index) => {
+        return <p key={index}>{t}</p>
     })
 
 

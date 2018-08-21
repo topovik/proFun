@@ -18,9 +18,9 @@ class SliderArticlesList extends Component {
             />
         })
         return (
-            <div className={css.MainSliderContainer}>
+            <div className={css.MainSliderContainerSection}>
                 <div className={css.MainSliderOne}>
-                    <Carousel slidesToShow={4} cellAlign="left"
+                    <Carousel slidesToShow={4} cellAlign="left" cellSpacing={3}
                         renderCenterLeftControls={({ previousSlide }) => (
                             <React.Fragment></React.Fragment>
                         )}

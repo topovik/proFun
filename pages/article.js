@@ -32,31 +32,46 @@ class Article extends Component {
         return (
             <div className={css.pageContainerNeedSee}>
                 <header className={css.header}>
-                    <Header />
+                    <div className={css.headerContainer}>
+                        <Header />
+                    </div>
                 </header>
                 <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
-                        <NavigationForm logoScroll={this.state.logoScroll}/>
+                        <div className={css.NavigationSection}>
+                            <NavigationForm logoScroll={this.state.logoScroll}/>
+                        </div>
                     </Sticky>
                 </nav> 
-                <main className={css.pageMain}>
-                    <article className={css.pageArticle}>
-                        <ArticlesList dataArticle={this.props.dataArticle} />
-                    </article>
-                </main>
-                <aside className={css.aside} id="aside">
-                    <Sticky bottomBoundary="#aside" top='#navigation'>
-                        <AsideArticlesList asideArticles={this.props.asideArticles} />
-                    </Sticky>  
-                </aside>
-                <section className={css.SliderNeedSee}>
-                    <SliderNeedSee sliderArticles={this.props.sliderArticles} />
-                </section>
+                <div className={css.IndexArticlesContainer}>
+                    <div className={css.pageMainAsideContainer}>
+                        <div className={css.pageMainSliderContainer}>
+                            <main className={css.pageMain}>
+                                <article className={css.pageArticle}>
+                                    <ArticlesList dataArticle={this.props.dataArticle} />
+                                </article>
+                            </main>
+                            <section className={css.SliderNeedSee}>
+                                <SliderNeedSee sliderArticles={this.props.sliderArticles} />
+                            </section>
+                        </div>
+                        <aside className={css.aside} id="aside">
+                            <Sticky bottomBoundary="#aside" top='#navigation'>
+                                <AsideArticlesList asideArticles={this.props.asideArticles} />
+                            </Sticky>  
+                        </aside>
+                    </div>
+                </div>
+
                 <nav className={css.NavigationFooter}>
-                    <BottomNavigationForm />
+                    <div className={css.BottomNavigationSection}>
+                        <BottomNavigationForm />
+                    </div>
                 </nav>
                 <footer className={css.footer}>
-                    <Footer />
+                    <div className={css.FooterContainer}>
+                        <Footer />
+                    </div>
                 </footer>
             </div>
         )
