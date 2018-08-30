@@ -16,20 +16,40 @@ class SliderNeedSee extends Component {
             />
         })
         return (
-                <Carousel slidesToShow={3} cellAlign="left" autoplay={true}
-                    cellSpacing={6}
-                    renderCenterLeftControls={({ previousSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    renderCenterRightControls={({ nextSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    renderBottomCenterControls={({ goToSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    >
-                    {sliderList}
-                </Carousel>
+            <React.Fragment>
+                <div className={css.SliderNeedSeeOne}>
+                    <Carousel slidesToShow={3} cellAlign="left" autoplay={true}
+                        cellSpacing={13}
+                        renderCenterLeftControls={({ previousSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderCenterRightControls={({ nextSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderBottomCenterControls={({ goToSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        >
+                        {sliderList}
+                    </Carousel>
+                </div>
+                <div className={css.SliderNeedSeeTwo}>
+                    <Carousel slidesToShow={2} cellAlign="left" autoplay={true}
+                        cellSpacing={10}
+                        renderCenterLeftControls={({ previousSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderCenterRightControls={({ nextSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderBottomCenterControls={({ goToSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        >
+                        {sliderList}
+                    </Carousel>
+                </div>
+            </React.Fragment>
 
         )
     }

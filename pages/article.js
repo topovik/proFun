@@ -9,6 +9,7 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import SliderNeedSee from '../containers/SliderNeedSee'
 import BottomNavigationForm from '../components/NavigationBottomForm'
+import NavMobileForm from '../components/NavMobileForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
@@ -18,7 +19,8 @@ class Article extends Component {
         super(props)
 
         this.state = {
-            logoScroll: false
+            logoScroll: false,
+            displayMenu: 2
         }
     }
     render() {
@@ -34,6 +36,7 @@ class Article extends Component {
                 <header className={css.header}>
                     <div className={css.headerContainer}>
                         <Header />
+                        <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
                     </div>
                 </header>
                 <nav className={css.Navigation} id="navigation"> 
@@ -62,12 +65,14 @@ class Article extends Component {
                         </aside>
                     </div>
                 </div>
-
                 <nav className={css.NavigationFooter}>
                     <div className={css.BottomNavigationSection}>
                         <BottomNavigationForm />
                     </div>
                 </nav>
+                <div>
+                    <NavMobileForm displayMenu={this.state.displayMenu} onClickHideMenu={this.onClickHideMenu}/>
+                </div>
                 <footer className={css.footer}>
                     <div className={css.FooterContainer}>
                         <Footer />
@@ -76,6 +81,15 @@ class Article extends Component {
             </div>
         )
     }
+
+    onClickMobile() {
+        this.setState({displayMenu: ++this.state.displayMenu})
+    }
+
+    onClickHideMenu = (value) => {
+        this.setState({displayMenu: this.state.displayMenu + value})
+    }
+
 }
 
 Article.getInitialProps = async (req) => {

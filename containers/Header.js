@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchForm from '../components/SearchForm'
 import Social from '../components/Social'
 import Weather from '../components/Weather'
+import NavMobileForm from '../components/NavMobileForm'
 import css from '../style.css'
 import Link from 'next/link'
 
@@ -40,6 +41,7 @@ class Header extends Component {
             </React.Fragment>
         )
     }
+
 }
 
 export default Header

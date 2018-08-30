@@ -8,6 +8,7 @@ import Footer from '../containers/Footer'
 import Header from '../containers/Header'
 import NavigationForm from '../components/NavigationForm'
 import BottomNavigationForm from '../components/NavigationBottomForm'
+import NavMobileForm from '../components/NavMobileForm'
 import Sticky from 'react-stickynode'
 import css from "../style.css"
 
@@ -17,7 +18,8 @@ class Index extends Component {
 
         this.state = {
             art: this.props.articles,
-            logoScroll: false
+            logoScroll: false,
+            displayMenu: 2
         }
     }
 
@@ -34,6 +36,7 @@ class Index extends Component {
                 <header className={css.header}>
                     <div className={css.headerContainer}>
                         <Header />
+                        <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
                     </div>
                 </header>
                 <nav className={css.Navigation} id="navigation"> 
@@ -68,6 +71,9 @@ class Index extends Component {
                         <BottomNavigationForm />
                     </div>
                 </nav>
+                <div>
+                    <NavMobileForm displayMenu={this.state.displayMenu} onClickHideMenu={this.onClickHideMenu}/>
+                </div>
                 <footer className={css.footer}>
                     <div className={css.FooterContainer}>
                         <Footer />
@@ -76,6 +82,14 @@ class Index extends Component {
             </div>
 
         )
+    }
+
+    onClickMobile() {
+        this.setState({displayMenu: ++this.state.displayMenu})
+    }
+
+    onClickHideMenu = (value) => {
+        this.setState({displayMenu: this.state.displayMenu + value})
     }
 
 

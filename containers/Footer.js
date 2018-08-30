@@ -1,10 +1,13 @@
 import React from 'react'
 import Social from '../components/Social'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
         <React.Fragment>
-            <img src="/static/proFun_Logo_footer.png" alt="logo"/>
+            <Link prefetch href={{ pathname: '/'}}>
+                <img src="/static/proFun_Logo_footer.png" alt="logo"/>
+            </Link>
             <Social />
             <p>© proFun.app 2018. All rights reserved.</p>
         </React.Fragment>

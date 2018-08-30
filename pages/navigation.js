@@ -8,6 +8,7 @@ import Footer from '../containers/Footer'
 import AsideArticlesList  from '../containers/AsideArticlesList'
 import SearchSliderArticlesList from '../containers/SearchSliderArticlesList'
 import BottomNavigationForm from '../components/NavigationBottomForm'
+import NavMobileForm from '../components/NavMobileForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
@@ -18,7 +19,8 @@ class Navigation extends Component {
         this.state = {
             art: this.props.navigation,
             logoScroll: false,
-            navigationTxt: this.props.backNavigation
+            navigationTxt: this.props.backNavigation,
+            displayMenu: 2
         }
     }
 
@@ -37,37 +39,61 @@ class Navigation extends Component {
         return (
             <div className={css.pageNavigationArticles}>
                 <header className={css.header}>
-                    <Header />
+                    <div className={css.headerContainer}>
+                        <Header />
+                        <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
+                    </div>
                 </header>
                 <nav className={css.Navigation} id="navigation"> 
                     <Sticky onStateChange={handleStateChange} innerZ={999}>
-                        <NavigationForm backNavigation={this.props.backNavigation} logoScroll={this.state.logoScroll}/>
+                        <div className={css.NavigationSection}>
+                            <NavigationForm backNavigation={this.props.backNavigation} logoScroll={this.state.logoScroll}/>
+                        </div>
                     </Sticky>
                 </nav>
-                <section className={css.SearchSlider} id="slider">
-                    <Sticky bottomBoundary='#slider' top='#navigation'>
-                        <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
-                    </Sticky>
-                </section>
-                <main className={css.pageSearchMain}>
-                    <article className={css.SearchArticle}>
-                        <NavigationList navigation={seeMore} />
-                    </article>
-                    <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
-                </main>
-                <aside className={css.aside} id="aside">
-                    <Sticky bottomBoundary='#aside' top='#navigation'>
-                        <AsideArticlesList asideArticles={this.props.asideArticles} />
-                    </Sticky>  
-                </aside>
+                <div className={css.SearchNavigationContainer}>
+                    <div className={css.SliderMainAsideContainer}>
+                        <section className={css.SearchSlider} id="slider">
+                            <Sticky bottomBoundary='#slider' top='#navigation'>
+                                <SearchSliderArticlesList sliderArticles={this.props.sliderArticles} />
+                            </Sticky>
+                        </section>
+                        <main className={css.pageSearchMain}>
+                            <article className={css.SearchArticle}>
+                                <NavigationList navigation={seeMore} />
+                            </article>
+                            <button className={css.IndexButton} onClick={this.onClick = this.onClick.bind(this)}>See More</button>
+                        </main>
+                        <aside className={css.aside} id="aside">
+                            <Sticky bottomBoundary='#aside' top='#navigation'>
+                                <AsideArticlesList asideArticles={this.props.asideArticles} />
+                            </Sticky>  
+                        </aside>
+                    </div>
+                </div>
                 <nav className={css.NavigationFooter}>
-                    <BottomNavigationForm />
+                    <div className={css.BottomNavigationSection}>
+                        <BottomNavigationForm />
+                    </div>
                 </nav>
+                <div>
+                    <NavMobileForm displayMenu={this.state.displayMenu} onClickHideMenu={this.onClickHideMenu}/>
+                </div>
                 <footer className={css.footer}>
-                    <Footer />
+                    <div className={css.FooterContainer}>
+                        <Footer />
+                    </div>
                 </footer>
             </div>
         )
+    }
+
+    onClickMobile() {
+        this.setState({displayMenu: ++this.state.displayMenu})
+    }
+
+    onClickHideMenu = (value) => {
+        this.setState({displayMenu: this.state.displayMenu + value})
     }
 
     async onClick() {

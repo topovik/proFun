@@ -39,29 +39,39 @@ body,
     display: none;
 }
 
+.MainSliderFour {
+    display: none;
+}
+
 .articleSliderContainer div span, .articleSliderNeedSeeContainer div span, 
 .articleSliderSearchContainer div span {
     grid-area: articleCount;
-    align-self: center;
+    align-self: end;
     justify-self: start;
     color: whitesmoke;
     font-size: 15px;
 }
 
+.articleSliderSearchContainer div span {
+    padding-left: 5px;
+}
+
 .articleSliderContainer div i, .articleSliderNeedSeeContainer div i, 
 .articleSliderSearchContainer div i {
     grid-area: articleIcon;
-    align-self: center;
-    justify-self: start;
     color: whitesmoke;
     font-size: 14px;
+    align-self: end;
+    margin-bottom: 5px;
 }
 
 .articleSliderContainer div h3, .articleSliderNeedSeeContainer div h3,
 .articleSliderSearchContainer div h3 {
    grid-area: articleName;
    margin: 0;
-   align-self: center;
+   text-align: center;
+   align-self: start;
+   margin-top: 10px;
    font: 700 18px/20px 'Roboto Condensed', sans-serif;
    color: white;
 }
@@ -80,7 +90,7 @@ body,
 .articleSliderContainer div, .articleSliderNeedSeeContainer div,
 .articleSliderSearchContainer div {
     position: absolute;
-    top: 60%;
+    top: 50%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -88,8 +98,8 @@ body,
     grid-area: articleTitle;
     background: rgba(26, 26, 26, 0.562);
     display: grid;
-    grid-template-columns: 1fr 5% 85% 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 5% 90% 1fr;
+    grid-template-rows: 90% 10%;
     grid-template-areas:
     ". articleName articleName ."
     ". articleIcon articleCount ."
@@ -201,7 +211,7 @@ body,
 
 .articleContainer div span {
     grid-area: articleCount;
-    align-self: center;
+    align-self: end;
     justify-self: start;
     color: whitesmoke;
     font-size: 15px;
@@ -209,17 +219,19 @@ body,
 
 .articleContainer div i {
     grid-area: articleIcon;
-    align-self: center;
-    justify-self: start;
+    justify-self: end;
+    align-self: end;
     color: whitesmoke;
     font-size: 14px;
+    padding-right: 7px;
+    margin-bottom: 4px;
 }
 
 .articleContainer div h3 {
    grid-area: articleName;
-   margin: 0;
    justify-self: start;
-   align-self: center;
+   align-self: start;
+   margin-top: 10px;
    font: 700 18px/20px 'Roboto Condensed', sans-serif;
    color: white;
 }
@@ -244,8 +256,8 @@ body,
     grid-area: articleTitle;
     background: rgba(26, 26, 26, 0.562);
     display: grid;
-    grid-template-columns: 1fr 5% 85% 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 5% 90% 1fr;
+    grid-template-rows: 90% 10%;
     grid-template-areas:
     ". articleName articleName ."
     ". articleIcon articleCount ."
@@ -423,9 +435,9 @@ body,
     grid-template-areas:
     "header header header header header"
     "navigation navigation navigation navigation navigation"
-    ". searchSlider searchMain sidebar ."
-    ". navigationFooter navigationFooter navigationFooter ."
-    ". footer footer footer ."
+    "searchNavigationContainer searchNavigationContainer searchNavigationContainer searchNavigationContainer searchNavigationContainer"
+    "navigationFooter navigationFooter navigationFooter navigationFooter navigationFooter"
+    "footer footer footer footer footer"
 }
 
 /* Navigation */
@@ -572,7 +584,7 @@ body,
 
 .NavigationSearchForm {
     position: absolute;
-    left: -228px;
+    right: -1px;
 }
 
 .inputFormNavigation {
@@ -729,7 +741,7 @@ body,
     grid-column-gap: 2%;
     grid-row-gap: 3vh;
     grid-template-columns: 1fr 60% 20% 1fr;
-    grid-template-rows: 15vh auto auto auto auto 20vh;
+    grid-template-rows: 15vh auto auto auto auto 15vh;
     grid-template-areas: 
     "header header header header" 
     "navigation navigation navigation navigation"
@@ -781,15 +793,19 @@ body,
     font: 16px/20px 'Roboto Condensed', sans-serif;
 }
 
+.SliderNeedSeeTwo {
+    display: none;
+}
+
 .articleSliderNeedSeeContainer {
     position: relative;
-    width: 358px;
+    width: 359px;
 }
 
 .articleSliderNeedSeeContainer img {
     display: grid;
     cursor: pointer;
-    width: 358px;
+    width: 359px;
 }
 
 .IndexArticlesContainer {
@@ -827,8 +843,8 @@ body,
     "header header header header"
     "navigation navigation navigation navigation"
     "indexArticlesContainer indexArticlesContainer indexArticlesContainer indexArticlesContainer"
-    ". navigationFooter navigationFooter ."
-    ". footer footer ."
+    "navigationFooter navigationFooter navigationFooter navigationFooter"
+    "footer footer footer footer"
 }
 
 .Tags p {
@@ -853,7 +869,7 @@ body,
     text-align: left;
     border-radius: 25px 25px 25px 25px;
     overflow: hidden;
-    width: 15vw;
+    width: 280px;
     height: 35px;
     background: #5c5c5c;
     font-size: 16px;
@@ -948,7 +964,6 @@ body,
     width: 1450px;
     align-self: center;
     display: grid;
-    grid-area: headerContainer;
     align-items: center;
     grid-template-columns: 25% 30% 25% 20%;
     grid-template-areas:
@@ -1039,18 +1054,32 @@ body,
     width: 100%;
 }
 
-.pageSearchArticles {
+.SearchNavigationContainer {
+    grid-area: searchNavigationContainer;
+}
+
+.SliderMainAsideContainer {
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-column-gap: 2%;
+    width: 1450px;
+    grid-template-columns: 22% 49% 25%;
+    grid-template-areas:
+    "searchSlider searchMain sidebar"
+}
+
+.pageSearchArticles {
+    display: grid;
     grid-row-gap: 3vh;
     grid-template-columns: 1fr 17% 40% 21% 1fr;
     grid-template-rows: 15vh auto auto auto 20vh;
     grid-template-areas:
     "header header header header header"
     "navigation navigation navigation navigation navigation"
-    ". searchSlider searchMain sidebar ."
-    ". navigationFooter navigationFooter navigationFooter ."
-    ". footer footer footer ."
+    "searchNavigationContainer searchNavigationContainer searchNavigationContainer searchNavigationContainer searchNavigationContainer"
+    "navigationFooter navigationFooter navigationFooter navigationFooter navigationFooter"
+    "footer footer footer footer footer"
 }
 
 .searchContainer p {
@@ -1059,7 +1088,7 @@ body,
 
 .searchContainer img {
     grid-area: searchImg;
-    width: 20vw;
+    width: 370px;
 }
 
 .searchResultContainer {
@@ -1114,7 +1143,7 @@ body,
 
 .footer img {
     grid-area: footerImg;
-    width: 20vw;
+    width: 300px;
     cursor: pointer;
 }
 
@@ -1239,290 +1268,407 @@ body,
     color: rgb(184, 133, 163);
 }
 
+/* NavMobileForm */
+
+.MenuButton {
+    display: none;
+}
+
+.NavMobileForm {
+    position: absolute;
+    transition: ease .5s;
+    z-index: 1000;
+    top: 0;
+    background: #3f3f3f;
+    height: 100vh;
+}
+
+.inputMobileForm {
+    border: 2px solid #4a4a4a;
+    text-align: left;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    width: 280px;
+    height: 33px;
+    background: #5c5c5c;
+    font-size: 16px;
+    padding: 0 0 0 15px;
+    outline: none;
+    color: rgb(63, 63, 63);
+    margin: 10px 10px;
+}
+
+.buttonMobileForm {
+    color: grey;
+    cursor: pointer;
+    position: absolute;
+    left: 85%;
+    top: 19px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.NavigationMobile {
+    margin-top: 80px;
+}
+
+.NavigationMobile h2 {
+    margin: 0 0 0 3px;
+    border-bottom: 1px solid black;
+    display: block;
+    padding: 15px 0 15px 15px;
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.NavigationMobile h2:nth-child(1) {
+    border-left: 2px solid black;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.NavigationMobile h2:nth-child(2) {
+    border-left: 2px solid red;
+}
+
+.NavigationMobile h2:nth-child(3) {
+    border-left: 2px solid rgb(187, 255, 0);
+}
+
+.NavigationMobile h2:nth-child(4) {
+    border-left: 2px solid orange;
+}
+
+.NavigationMobile h2:nth-child(5) {
+    border-left: 2px solid rgb(0, 162, 255);
+}
+
+.NavigationMobile h2:nth-child(6) {
+    border-left: 2px solid green;
+}
+
+.NavigationMobile h2:nth-child(7) {
+    border-left: 2px solid rgb(255, 192, 229);
+}
+
+.NavigationMobile h2:nth-child(1):hover {
+   background: rgb(26, 26, 26);
+}
+
+.NavigationMobile h2:nth-child(2):hover {
+    background: rgb(206, 0, 0);
+}
+
+.NavigationMobile h2:nth-child(3):hover {
+    background: rgb(135, 184, 0);
+}
+
+.NavigationMobile h2:nth-child(4):hover {
+    background: rgb(185, 121, 0);
+}
+
+.NavigationMobile h2:nth-child(5):hover {
+    background: rgb(0, 110, 173);
+}
+
+.NavigationMobile h2:nth-child(6):hover {
+    background: rgb(0, 95, 0);
+}
+
+.NavigationMobile h2:nth-child(7):hover {
+    background: rgb(184, 133, 163);
+}
+
 /* @media */
 
-@media (max-width: 1185px) {
-    .header {
+@media (max-width: 1470px) {
+    .headerContainer {
+        width: 1300px;
+    }
+
+    .NavigationSectionContainer {
+        width: 1300px;
+    }
+
+    .MainSliderContainer {
+        width: 1300px;
+    }
+
+    .articleSliderContainer img {
+        width: 324px;
+    }
+
+    .articleSliderContainer {
+        width: 324px;
+    }
+
+    .articleSliderContainer div h3 {
+        font-size: 17px;
+    }
+
+    .articleContainer {
+        width: 460px;
+        position: relative;
+    }
+
+    .MainArticleImg {
         display: grid;
-        align-items: center;
-        grid-template-columns: 28% 27% 20% 25%;
-        grid-template-areas:
-        "logo search social weather"
+        cursor: pointer;
+        width: 460px;
     }
 
-    .buttonForm {
-        position: absolute;
-        left: 79%;
-        top: 7px;
-        font-size: 14px;
+    .LogoNavigation img {
+        top: -6px;
     }
 
-    .articleCount {
-        font-size: 13px;
+    .MainAsideContainer {
+        width: 1300px;
     }
 
-    .articleAside h4 {
-        margin: 3% 0;
-        font: 600 15px/19px 'Roboto Condensed', sans-serif;
+    .BottomNavigationSection {
+        width: 1300px;
+        grid-template-columns: 50% 41% 9%;
     }
 
-    .articleTitle h3 {
-        font: 600 15px/19px 'Roboto Condensed', sans-serif;
-        padding-bottom: 5%;
-    }
-
-    .articleSlider {
-        font: 600 15px/18px 'Roboto Condensed', sans-serif;
-    }
-
-    .articleTitle h4 {
-        padding-bottom: 8%;
-    }
-
-    .Logo {
-        width: 285px;
-    }
-
-    .inputForm {
-        width: 23vw;
-        height: 29px;
-        font-size: 15px;
-    }
-
-    .container {
-        display: grid;
-        grid-column-gap: 2%;
-        grid-row-gap: 3vh;
-        grid-template-columns: 5% 65% 25% 5%;
-        grid-template-rows: 14vh auto auto auto auto 16vh;
-        grid-template-areas: 
-        "header header header header" 
-        "navigation navigation navigation navigation"
-        "slider slider slider slider" 
-        "main main sidebar sidebar" 
-        "navigationFooter navigationFooter navigationFooter navigationFooter"
-        "footer footer footer footer"
-    }
-
-    .Weather {
-        grid-template-rows: 4vh 7vh;
+    .FooterContainer {
+        width: 1300px;
     }
 
     /* Article page */
 
-    .pageArticle img {
-        width: 100%;
+    .pageMainAsideContainer {
+        width: 1300px;
     }
 
-    .pageContainerNeedSee {
-        grid-template-rows: 14vh auto auto 16vh;
-    }
-
-    /* pageSearch */
-
-    .SearchSlider {
+    .SliderNeedSeeTwo {
         display: none;
-        grid-area: searchSlider;
-        background-size: contain;
-        text-align: center;
-        justify-items: center;;
     }
 
-    .pageSearchArticles {
-        display: grid;
-        grid-template-columns: 1fr 60% 32% 1fr;
-        grid-template-rows: 11vh auto 16vh;
-        grid-template-areas:
-        "header header header header"
-        ". searchMain sidebar ."
-        ". footer footer ."
+    .articleSliderNeedSeeContainer img {
+        width: 323px;
+    }
+
+    .articleSliderNeedSeeContainer {
+        width: 323px;
+    }
+
+    .articleSliderNeedSeeContainer div h3 {
+        font-size: 17px;
+    }
+
+    .articleSliderNeedSeeContainer div {
+        top: 50%;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        width: 1300px;
     }
 
     .searchContainer img {
-        width: 30vw;
+        width: 335px;
     }
 
-    .searchContainer h3 {
+    .articleSliderSearchContainer div {
+        top: 50%;
+    }
+
+    .articleSliderSearchContainer div h3 {
         font-size: 16px;
     }
 
-    .SocialIcons {
-        grid-column-gap: 20px;
-        grid-row-gap: 6px;
-        grid-template-columns: 1fr 8% 8% 8% 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas:
-        ". vk facebook instagram ."
-        ". youtube twitter pinterest ."
+    .articleSliderSearchContainer div span {
+        padding-left: 5px;
     }
-
-    .footer img {
-        grid-area: footerImg;
-        width: 30vw;
-        cursor: pointer;
-    }
-
-
 }
 
-@media (min-width: 550px) and (max-width: 749px) {
-    .aside {
-        display: none;
+@media (max-width: 1320px) {
+
+    .headerContainer {
+        width: 1100px;
     }
 
-    .container {
-        grid-template-columns: 1fr 67% 27% 1fr;
-        grid-template-rows: 14vh auto auto 14vh;
-        grid-template-areas: 
-        "header header header header" 
-        "slider slider slider slider" 
-        ". main main ." 
-        ". footer footer ."
+    .NavigationSectionContainer {
+        width: 1100px;
     }
 
-    .article img {
-        width: 45vw
+    .MainSliderContainer {
+        width: 1100px;
     }
 
-    .article {
-        display: grid;
-        justify-items: center;
-        align-self: center;
-        grid-row-gap: 2vh;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 10% auto;
-        grid-template-areas:
-        "MainArticlesTitle social" 
-        "mainDivOdd mainDivEven"
+    .articleSliderContainer img {
+        width: 274px;
+    }
+
+    .articleSliderContainer {
+        width: 274px;
+    }
+
+    .articleSliderContainer div {
+        top: 50%;
+    }
+
+    .articleSliderContainer div h3 {
+        font-size: 16px;
+        align-self: start;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .articleSliderContainer div span {
+        padding-left: 5px;
+        align-self: end;
+    }
+
+    .articleSliderContainer div i {
+        margin-bottom: 5px;
     }
 
     .articleContainer {
-        margin-top: 0;    
+        width: 392px;
+        position: relative;
     }
 
-    .MainArticlesTitle {
-        margin: 3% 0 0 3%;
+    .MainArticleImg {
+        width: 392px;
     }
 
-    .Weather {
+    .LogoNavigation img {
+        top: -3px;
+    }
+
+    .MainAsideContainer {
+        width: 1100px;
+    }
+
+    .BottomNavigationSection {
+        width: 1100px;
+        grid-template-columns: 50% 39% 11%;
+    }
+
+    .FooterContainer {
+        width: 1100px;
+    }
+
+    /* Article page */
+
+    .pageMainAsideContainer {
+        width: 1100px;
+    }
+
+    .SliderNeedSeeOne {
         display: none;
     }
 
-    .header {
-        justify-items: end;
-        grid-template-columns: 42% 33% 25%;
+    .SliderNeedSeeTwo {
+        display: block;
+    }
+
+    .articleSliderNeedSeeContainer img {
+        width: 410px;
+    }
+
+    .articleSliderNeedSeeContainer {
+        width: 410px;
+    }
+
+    .articleSliderNeedSeeContainer div h3 {
+        font-size: 18px;
+        align-self: start;
+        margin-top: 10px;
+    }
+
+    .articleSliderNeedSeeContainer div {
+        top: 55%;
+    }
+
+    .articleSliderNeedSeeContainer div span {
+        align-self: end;
+    }
+
+    .articleSliderNeedSeeContainer div i {
+        margin-bottom: 4px;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        width: 1100px;
+    }
+
+    .inputForm {
+        width: 240px;
+        margin-left: 50px;
+    }
+
+    .articleSliderSearchContainer div {
+        top: 45%
+    }
+
+    .articleSliderSearchContainer div h3 {
+        font-size: 16px;
+        align-self: start;
+        margin-top: 5px;
+    }
+
+    .articleSliderSearchContainer div span {
+        align-self: end;
+    }
+
+    .articleSliderSearchContainer div i {
+        margin-bottom: 5px;
+    }
+
+    .searchContainer img {
+        width: 285px;
+    }
+
+}
+
+@media (max-width: 1115px) {
+
+    .container {
+        grid-template-rows: 11vh auto auto auto auto 15vh;
+    }
+
+    .headerContainer {
+        width: 950px;
+        padding-top: 0;
+        grid-template-columns: 35% 40% 25%;
         grid-template-areas:
         "logo search social"
     }
 
-    .buttonForm {
-        position: absolute;
-        left: 79%;
-        top: 7px;
-        font-size: 12px;
-    }
-
-    .articleCount {
-        font-size: 13px;
-    }
-
-    .articleAside h4 {
-        margin: 3% 0;
-        font: 600 15px/19px 'Roboto Condensed', sans-serif;
-    }
-
-    .articleTitle h3 {
-        font: 600 15px/19px 'Roboto Condensed', sans-serif;
-        padding-bottom: 5%;
-    }
-
-    .articleSlider {
-        font: 600 15px/18px 'Roboto Condensed', sans-serif;
-    }
-
-    .articleTitle h4 {
-        padding-bottom: 8%;
-    }
-
-    .Logo {
-        width: 35vw;
+    .Weather {
+        display: none;
     }
 
     .inputForm {
-        width: 23vw;
-        height: 25px;
-        font-size: 11px;
+        margin-left: 0;
     }
 
-    /* Article page */
-
-    .Tags p {
-        display: inline-block;
-        border: 2px solid black;
-        padding: 3px 3px;
-        margin-right: 7px;
-        font-size: 15px;
+    .NavigationSectionContainer {
+        width: 950px;
+        grid-template-columns: 75% 19% 6%;
+        grid-template-areas: 
+        "navigationForm followContainer navigationSearch"
     }
 
-    .pageArticle img {
-        width: 100%;
+    .MainSliderContainer {
+        width: 950px;
     }
 
-    .pageContainerNeedSee {
-        grid-template-columns: 1fr 67% 27% 1fr;
-        grid-template-rows: 14vh auto auto 16vh;
-        grid-template-areas:
-        "header header header header"
-        ". pageMain pageMain ."
-        ". sliderNeedSee sliderNeedSee ."
-        ". footer footer ."
+    .articleSliderContainer img {
+        width: 315px;
     }
 
-    .SliderNeedSee img {
-        width: 96%;
-    }
-
-    /* pageSearch */
-
-    .SearchSlider {
-        display: none;
-        grid-area: searchSlider;
-        background-size: contain;
-        text-align: center;
-        justify-items: center;;
-    }
-
-    .pageSearchArticles {
-        grid-template-columns: 1fr 60% 32% 1fr;
-        grid-template-rows: 14vh auto 16vh;
-        grid-template-areas:
-        "header header header header"
-        ". searchMain searchMain."
-        ". footer footer ."
-    }
-
-    .SearchSlider img {
-        width: 100%;
-        justify-items: center;
-    }
-
-    .searchContainer img {
-        width: 96%;
-    }
-
-    .searchContainer h3 {
-        font-size: 16px;
-    }
-
-    .SocialIcons {
-        align-self: center;
-        grid-column-gap: 20px;
-        grid-row-gap: 6px;
-        grid-template-columns: 1fr 8% 8% 8% 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas:
-        ". vk facebook instagram ."
-        ". youtube twitter pinterest ."
+    .articleSliderContainer {
+        width: 315px;
     }
 
     .MainSliderOne {
@@ -1539,171 +1685,704 @@ body,
         grid-area: three;
     }
 
+    .MainSliderFour {
+        display: block;
+        grid-area: four;
+    }
+
+    .MainSliderContainerSection {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "two three four"
+    }
+
+    .MainAsideContainer {
+        width: 950px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "main" 
+    }
+
+    .articleContainer {
+        width: 455px;
+        position: relative;
+    }
+
+    .MainArticleImg {
+        width: 455px;
+    }
+
+    .BottomNavigationSection {
+        width: 950px;
+        grid-template-columns: 50% 38% 12%;
+    }
+
+    .FooterContainer {
+        width: 950px;
+    }
+
+    .aside {
+        display: none;
+    }
+
+    /* Article page */
+
+    .pageMainAsideContainer {
+        width: 950px;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "pageMainSliderContainer"
+    }
+
+    .pageContainerNeedSee {
+        grid-template-rows: 11vh auto auto auto 15vh;
+    }
+
+    .SliderNeedSeeTwo {
+        display: none;
+    }
+
+    .SliderNeedSeeOne {
+        display: block;
+    }
+
+    .articleSliderNeedSeeContainer img {
+        width: 319px;
+    }
+
+    .articleSliderNeedSeeContainer {
+        width: 319px;
+    }
+
+    .Tags p {
+        padding: 3px 3px;
+        font-size: 15px;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        width: 950px;
+        grid-template-columns: 33% 67%;
+        grid-template-areas:
+        "searchSlider searchMain"
+    }
+
+    .pageSearchArticles {
+        grid-template-rows: 11vh auto auto auto auto 15vh;
+    }
+
+    .searchContainer img {
+        width: 330px;
+    }
+}
+
+@media (max-width: 970px) {
+
+    .container {
+        grid-template-columns: 100%;
+        grid-template-rows: 5vh auto auto auto 10vh;
+        grid-template-areas: 
+        "header" 
+        "slider" 
+        "indexContainer" 
+        "navigationFooter"
+        "footer"
+    }
+
+    .MainSlider {
+        margin-top: -2vh;
+    }
+
+    .header {
+        position: fixed;
+        height: 5.5vh;
+        width: 100%;
+    }
+
+    .headerContainer {
+        width: 100%;
+        position: relative;
+        padding-top: 0;
+        grid-template-columns: 90% 10%;
+        grid-template-rows: 5.5vh;
+        grid-template-areas:
+        "logo menuButton"
+    }
+
+    .NavigationSectionContainer {
+        display: none;
+    }
+
+    .Logo {
+        width: 180px;
+        margin-left: 15px;
+    }
+
+    .LogoMobileMenu {
+        position: absolute;
+        width: 200px;
+        left: 60px;
+    }
+
+    .NavMobileForm {
+        position: relative;
+    }
+
+    .articleContainer {
+        width: 358px;
+        position: relative;
+    }
+
+    .MainArticleImg {
+        display: grid;
+        cursor: pointer;
+        width: 358px;
+    }
+
+    .MainSliderContainer {
+        width: 750px;
+    }
+
+    .articleSliderContainer img {
+        width: 373px;
+    }
+
+    .articleSliderContainer {
+        width: 373px;
+    }
+
+    .MainSliderOne {
+        display: none;
+    }
+    
+    .MainSliderTwo {
+        display: block;
+        grid-area: two;
+    }
+
+    .MainSliderThree {
+        display: block;
+        grid-area: three;
+    }
+
+    .MainSliderFour {
+        display: none;
+        grid-area: four;
+    }
+
     .MainSliderContainerSection {
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
         grid-template-areas:
         "two three"
-
     }
 
-    .MainSliderTwo img, .MainSliderThree img {
-        width: 99%;
+    .MainAsideContainer {
+        width: 750px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "main" 
     }
 
-    .footer img {
-        grid-area: footerImg;
-        width: 35vw;
-        cursor: pointer;
+    .BottomNavigationSection {
+        width: 750px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "bottomNavigationForm"
     }
 
-}
+    .ButtonToTop {
+        display: none;
+    }
 
-@media (max-width: 549px) {
+    .FooterContainer {
+        width: 750px;
+    }
+
     .aside {
         display: none;
     }
 
-    .Weather {
+    /* Article page */
+
+    .pageMainAsideContainer {
+        margin-top: -2vh;
+        width: 750px;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "pageMainSliderContainer"
+    }
+
+    .pageContainerNeedSee {
+        grid-template-rows: 5.5vh auto auto auto 10vh;
+    }
+
+    .SliderNeedSeeOne {
         display: none;
     }
 
+    .SliderNeedSeeTwo {
+        display: block;
+    }
+
+    .articleSliderNeedSeeContainer img {
+        width: 378px;
+    }
+
+    .articleSliderNeedSeeContainer {
+        width: 378px;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        margin-top: -2vh;
+        width: 750px;
+        grid-template-columns: 35% 65%;
+        grid-template-areas:
+        "searchSlider searchMain"
+    }
+
+    .pageSearchArticles {
+        grid-template-rows: 5.5vh auto auto auto auto 10vh;
+    }
+
+    .articleSliderSearchContainer img {
+        width: 262px;
+    }
+
+    .articleSliderSearchContainer {
+        width: 262px;
+    }
+
+    .searchContainer h3 {
+        font-size: 17px;
+    }
+
+    .searchContainer img {
+        width: 258px;
+    }
+
+    .pageNavigationArticles {
+        grid-template-rows: 5.5vh auto auto auto auto 10vh;
+    }
+
+    .articleSliderSearchContainer span {
+        padding-left: 5px;
+    }
+
+    .articleSliderSearchContainer div {
+        top: 45%;
+        grid-template-columns: 1fr 5% 88% 1fr;
+    }
+
+    .articleSliderSearchContainer div h3 {
+        font-size: 16.5px;
+    }
+
+
+    /* Article page */
+
+    .Tags p {
+        padding: 3px 3px;
+        font-size: 15px;
+    }
+
+    /* MobileMenu */
+
+    .MenuButton {
+        grid-area: menuButton;
+        display: inline-block;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 800px) {
+
     .container {
-        grid-template-columns: 1fr 96% 1fr;
-        grid-template-rows: 8.3vh auto auto 12vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 5vh auto auto auto 10vh;
         grid-template-areas: 
-        "header header header" 
-        "slider slider slider" 
-        ". main ." 
-        ". footer ."
+        "header" 
+        "slider" 
+        "indexContainer" 
+        "navigationFooter"
+        "footer"
     }
 
-    .article img {
-        width: 94vw;
+    .MainSlider {
+        margin-top: -2vh;
     }
 
-    .article {
-        display: grid;
-        justify-items: center;
-        align-self: center;
+    .header {
+        position: fixed;
+        height: 45px;
+        width: 100%;
+    }
+
+    .headerContainer {
+        width: 100%;
+        position: relative;
+        padding-top: 0;
+        grid-template-columns: 90% 10%;
+        grid-template-rows: 48px;
+        grid-template-areas:
+        "logo menuButton"
+    }
+
+    .NavigationSectionContainer {
+        display: none;
+    }
+
+    .Logo {
+        width: 180px;
+        margin-left: 15px;
+    }
+
+    .LogoMobileMenu {
+        position: absolute;
+        width: 200px;
+        left: 60px;
+    }
+
+    .NavMobileForm {
+        position: relative;
+    }
+
+    .articlesList {
         grid-row-gap: 2vh;
         grid-template-columns: 100%;
-        grid-template-rows: 10% auto auto;
+        grid-template-rows: auto auto;
         grid-template-areas:
-        "MainArticlesTitle" 
-        "mainDivOdd"
+        "mainDivOdd" 
         "mainDivEven"
     }
 
     .articleContainer {
-        margin-top: 0;    
-    }
-
-    .MainArticlesTitle {
-        margin: 3% 0 0 3%;
-    }
-
-    .header {
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 55% 45%;
-        grid-template-areas:
-        "logo search"
-        "logo social"
-    }
-
-    .buttonForm {
-        position: absolute;
-        left: 79%;
-        top: 6px;
-        font-size: 10px;
-    }
-
-    .Logo {
-        width: 90%;
-        margin: 0;
-        justify-self: center;
-        align-self: center;
-    }
-
-    form {
+        width: 570px;
         position: relative;
+    }
+
+    .articleContainer div h3 {
+        font-size: 20px;
+        text-align: center;
         justify-self: center;
+    }
+
+    .articleContainer div span {
+        font-size: 18px;
         align-self: end;
+        margin-bottom: 5px;
     }
 
-    .inputForm {
-        width: 30vw;
-        height: 20px;
-        font-size: 11px;
+    .articleContainer div i {
+        font-size: 15px;
+        align-self: end;
+        margin-bottom: 8px;
     }
 
-    .IndexButton {
-        padding: 5px 12px;
-        font: 400 16px/16px 'Roboto Condensed', sans-serif;
+    .MainArticleImg {
+        display: grid;
+        cursor: pointer;
+        width: 570px;
+    }
+
+    .MainSliderContainer {
+        width: 600px;
+    }
+
+    .articleSliderContainer img {
+        display: grid;
+        width: 299px;
+    }
+
+    .articleSliderContainer {
+        width: 299px;
+    }
+
+    .MainSliderOne {
+        display: none;
+    }
+    
+    .MainSliderTwo {
+        display: block;
+        grid-area: two;
+    }
+
+    .MainSliderThree {
+        display: block;
+        grid-area: three;
+    }
+
+    .MainSliderFour {
+        display: none;
+        grid-area: four;
+    }
+
+    .MainSliderContainerSection {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "three two"
+    }
+
+    .MainAsideContainer {
+        width: 600px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "main" 
+    }
+
+    .BottomNavigationSection {
+        width: 600px;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "bottomNavigationForm"
+    }
+
+    .BottomNavigationForm h2 {
+        padding: 15px 20px;
+        font-size: 20px;
+    }
+
+    .ButtonToTop {
+        display: none;
+    }
+
+    .FooterContainer {
+        width: 600px;
+    }
+
+    .aside {
+        display: none;
     }
 
     /* Article page */
 
-    .Tags p{
-        display: inline-block;
-        border: 1px solid black;
-        padding: 3px 3px;
-        margin: 5px 3px;
-        font-size: 13px;
-    }
-
-    .pageArticle img {
-        width: 100%;
+    .pageMainAsideContainer {
+        width: 600px;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "pageMainSliderContainer"
     }
 
     .pageContainerNeedSee {
-        grid-template-columns: 1fr 96% 1fr;
-        grid-template-rows: 8.3vh auto 12vh;
-        grid-template-areas: 
-        "header header header"  
-        ". pageMain ." 
-        ". footer ."
+        grid-template-rows: 45px auto auto auto 10vh;
     }
 
-    .SliderNeedSee {
+    .SliderNeedSeeOne {
         display: none;
     }
 
-    /* pageSearch */
+    .SliderNeedSeeTwo {
+        display: block;
+    }
+
+    .articleSliderNeedSeeContainer img {
+        width: 302px;
+    }
+
+    .articleSliderNeedSeeContainer {
+        width: 302px;
+    }
+
+    .Tags p {
+        padding: 3px 3px;
+        font-size: 15px;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        width: 600px;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "searchMain"
+    }
+
+    .Navigation {
+        display: none;
+    }
 
     .SearchSlider {
         display: none;
     }
 
     .pageSearchArticles {
-        grid-template-columns: 1fr 96% 1fr;
-        grid-template-rows: 8.3vh auto 12vh;
-        grid-template-areas: 
-        "header header header" 
-        ". searchMain ." 
-        ". footer ."
-    }
-
-    .searchContainer img {
-        width: 96%;
+        grid-template-columns: 100%;
+        grid-template-rows: 45px auto 5vh 10vh;
+        grid-template-areas:
+        "header"
+        "searchNavigationContainer"
+        "navigationFooter"
+        "footer"
     }
 
     .searchContainer h3 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
-    .youtube a, .pinterest a, .facebook a, .vk a, .twitter a, .instagram a {
-        font-size: 12px;
+    .searchContainer img {
+        width: 310px;
+    }
+
+    .pageNavigationArticles {
+        grid-template-columns: 100%;
+        grid-template-rows: 45px auto 5vh 10vh;
+        grid-template-areas:
+        "header"
+        "searchNavigationContainer"
+        "navigationFooter"
+        "footer"
+    }
+
+    .articleSliderSearchContainer span {
+        padding-left: 5px;
+    }
+
+    .articleSliderSearchContainer div {
+        top: 45%;
+        grid-template-columns: 1fr 5% 88% 1fr;
+    }
+
+    .articleSliderSearchContainer div h3 {
+        font-size: 16.5px;
+    }
+
+    /* MobileMenu */
+
+    .MenuButton {
+        grid-area: menuButton;
+        display: inline-block;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 615px) {
+
+    .container {
+        grid-template-columns: 100%;
+        grid-template-rows: 45px auto auto auto 40px;
+        grid-template-areas: 
+        "header" 
+        "slider" 
+        "indexContainer" 
+        "navigationFooter"
+        "footer"
+    }
+
+    .MainSlider {
+        margin-top: -2vh;
+    }
+
+    .header {
+        position: fixed;
+        height: 45px;
+        width: 100%;
+    }
+
+    .headerContainer {
+        width: 100%;
+        position: relative;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 48px;
+        grid-template-areas:
+        "logo menuButton"
+    }
+
+    .NavigationSectionContainer {
+        display: none;
+    }
+
+    .Logo {
+        width: 180px;
+        margin-left: 15px;
+    }
+
+    .LogoMobileMenu {
+        position: absolute;
+        width: 200px;
+        left: 60px;
+    }
+
+    .NavMobileForm {
+        position: relative;
+    }
+
+    .articlesList {
+        grid-row-gap: 2vh;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "mainDivOdd" 
+        "mainDivEven"
     }
 
     .SocialIcons {
-        align-self: center;
-        grid-column-gap: 9%;
-        grid-template-columns: 1fr 3% 3% 3% 3% 3% 3% 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-        ". vk facebook instagram youtube twitter pinterest ."
+        font-size: 12px;
+    }
+
+    .MainArticlesTitle {
+        grid-template-columns: 55% 45%;
+    }
+
+    .articleContainer {
+        position: relative;
+        width: 91vw;
+    }
+
+    .articleContainer div i {
+        padding-right: 2px;
+    }
+
+    .articleContainer div span {
+        justify-self: start;
+        padding-left: 2px;
+    }
+
+    .MainArticleImg {
+        display: grid;
+        cursor: pointer;
+        width: 91vw;
+    }
+
+    .MainSliderContainer {
+        width: 94vw;
+    }
+
+    .articleSliderContainer img {
+        width: 100%;
+    }
+
+    .articleSliderContainer {
+        width: 100%;
+    }
+
+    .articleSliderContainer div {
+        top: 52%;
+    }
+
+    .articleSliderContainer div h3 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .articleSliderContainer div span {
+        font-size: 18px;
+        align-self: end;
+        margin-bottom: 5px;
+    }
+
+    .articleSliderContainer div i {
+        font-size: 15px;
+        align-self: end;
+        margin-bottom: 8px;
+        justify-self: end;
     }
 
     .MainSliderOne {
@@ -1717,6 +2396,12 @@ body,
 
     .MainSliderThree {
         display: none;
+        grid-area: three;
+    }
+
+    .MainSliderFour {
+        display: none;
+        grid-area: four;
     }
 
     .MainSliderContainerSection {
@@ -1725,31 +2410,167 @@ body,
         grid-template-rows: auto;
         grid-template-areas:
         "two"
-
     }
 
-    .MainSliderTwo img {
-        width: 99.5%;
+    .MainAsideContainer {
+        width: 94vw;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "main" 
+    }
+
+    .BottomNavigationSection {
+        display: none;
+    }
+
+    .ButtonToTop {
+        display: none;
+    }
+
+    .FooterContainer {
+        width: 94vw;
+        border-top: 1px solid #e3e3e3;
+        margin-top: -15px;
+        padding-top: 10px;
+    }
+
+    .FooterContainer p {
+        margin: 0;
+        font-size: 12px
+    }
+
+    .aside {
+        display: none;
+    }
+
+    /* Article page */
+
+    .pageMainAsideContainer {
+        width: 94vw;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "pageMainSliderContainer"
+    }
+
+    .pageContainerNeedSee {
+        grid-template-columns: 100%;
+        grid-template-rows: 45px 1fr auto;
+        grid-template-areas:
+        "header"
+        "indexArticlesContainer"
+        "footer"
+    }
+    
+    .SliderNeedSeeOne {
+        display: none;
+    }
+
+    .SliderNeedSeeTwo {
+        display: none;
+    }
+
+    .Tags p {
+        border: 1px solid black;
+        padding: 3px 3px;
+        font-size: 12px;
+    }
+
+    /* pageSearch and pageNavigation */
+
+    .SliderMainAsideContainer {
+        width: 94vw;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "searchMain"
+    }
+
+    .Navigation {
+        display: none;
+    }
+
+    .NavigationFooter {
+        display: none;
+    }
+
+    .SearchSlider {
+        display: none;
+    }
+
+    .searchContainer h3 {
+        padding-left: 7px;
+        font-size: 15px;
+    }
+
+    .searchContainer img {
+        width: 90vw;
+    }
+
+    .pageNavigationArticles {
+        grid-template-columns: 100%;
+        grid-template-rows: 45px 1fr auto;
+        grid-template-areas:
+        "header"
+        "searchNavigationContainer"
+        "footer"
+    }
+
+    .pageSearchArticles {
+        grid-template-columns: 100%;
+        grid-template-rows: 45px 1fr auto;
+        grid-template-areas:
+        "header"
+        "searchNavigationContainer"
+        "footer"
+    }
+
+    .searchContainer {
+        border-bottom: 1px solid #e3e3e3;
+        margin: 0;
+        padding-bottom: 10px;
+        grid-template-columns: 100% ;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "searchTitle"
+        "searchImg"
+    }
+
+    /* MobileMenu */
+
+    .MenuButton {
+        grid-area: menuButton;
+        display: inline-block;
+        justify-self: end;
+        margin-right: 10px;
+    }
+
+    .inputMobileForm {
+        width: 230px;
+    }
+
+    .LogoMobileMenu {
+        left: 34px;
     }
 
     .footer img {
-        justify-self: end;
-        align-self: center;
-        grid-area: footerImg;
-        width: 48vw;
-        cursor: pointer;
+        width: 155px;
+    }
+}
+
+@media (max-width: 415px) {
+
+    .articleContainer div i {
+        font-size: 13px;
     }
 
-    .footer {
-        grid-template-columns: 45% 55% ;
-        grid-template-rows: 50% 20% 30%;
-        grid-template-areas:
-        "footerImg footerImg"
-        "social ."
-        "footerReserved footerReserved"
+    .articleContainer div span {
+        font-size: 16px;
     }
 
-    .footer p {
-        font-size: 15px;
+    .articleContainer div h3 {
+        font-size: 17px;
+    }
+
+    .articleContainer div {
+        top: 48%;
     }
 }

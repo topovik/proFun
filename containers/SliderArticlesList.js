@@ -37,6 +37,39 @@ class SliderArticlesList extends Component {
                 </div>
                 <div className={css.MainSliderTwo}>
                     <Carousel slidesToShow={1} cellAlign="left" vertical={true} 
+                        autoplayInterval={2300} swiping={true}
+                            renderCenterLeftControls={({ previousSlide }) => (
+                                <React.Fragment></React.Fragment>
+                            )}
+                            renderCenterRightControls={({ nextSlide }) => (
+                                <React.Fragment></React.Fragment>
+                            )}
+                            renderBottomCenterControls={({ goToSlide }) => (
+                                <React.Fragment></React.Fragment>
+                            )}
+                            autoplay={true}
+                            >
+                            {sliderList}
+                    </Carousel>
+                </div>
+                <div className={css.MainSliderThree}>
+                    <Carousel slidesToShow={1} cellAlign="left" vertical={true} swiping={true}
+                        renderCenterLeftControls={({ previousSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderCenterRightControls={({ nextSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        renderBottomCenterControls={({ goToSlide }) => (
+                            <React.Fragment></React.Fragment>
+                        )}
+                        autoplay={true}
+                        >
+                        {sliderList}
+                    </Carousel>
+                </div>
+                <div className={css.MainSliderFour}>
+                    <Carousel slidesToShow={1} cellAlign="left" vertical={true} 
                     autoplayInterval={2300} swiping={true}
                         renderCenterLeftControls={({ previousSlide }) => (
                             <React.Fragment></React.Fragment>
@@ -52,22 +85,6 @@ class SliderArticlesList extends Component {
                         {sliderList}
                     </Carousel>
                 </div>
-                <div className={css.MainSliderThree}>
-                <Carousel slidesToShow={1} cellAlign="left" vertical={true} swiping={true}
-                    renderCenterLeftControls={({ previousSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    renderCenterRightControls={({ nextSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    renderBottomCenterControls={({ goToSlide }) => (
-                        <React.Fragment></React.Fragment>
-                    )}
-                    autoplay={true}
-                    >
-                    {sliderList}
-                </Carousel>
-            </div>
             </div>
         )
     }

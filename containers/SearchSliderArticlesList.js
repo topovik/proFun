@@ -18,7 +18,7 @@ class SearchSliderArticlesList extends Component {
         })
         return (
             <React.Fragment>
-                <Carousel slidesToShow={4} cellAlign="left" vertical={true} 
+                <Carousel slidesToShow={4} cellAlign="left" vertical={true}
                     renderCenterLeftControls={({ previousSlide }) => (
                         <React.Fragment></React.Fragment>
                     )}
