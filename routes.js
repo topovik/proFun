@@ -5,13 +5,13 @@ const fetch = require('isomorphic-unfetch');
 const fs = require('fs');
 
 router.get("/api/mainarticles", (req, res) => {
-    titleModel.find({}).limit(2).exec((err, articles) => {
+    titleModel.find({}).limit(8).exec((err, articles) => {
         res.json(articles)
     })
 })
 
 router.get("/api/sliderarticles", (req, res) => {
-    titleModel.find({}).limit(5).exec((err, articles) => {
+    titleModel.find({}).limit(10).exec((err, articles) => {
         res.json(articles)
     })
 })
@@ -36,14 +36,14 @@ router.get("/api/search", (req, res) => {
 })
 
 router.get("/api/:category/navigation", (req, res) => {
-    titleModel.find({navigation: req.params.category}).limit(1).exec((err, articles) => {
+    titleModel.find({navigation: req.params.category}).limit(8).exec((err, articles) => {
         res.json(articles)
     })
 })
 
 router.get("/api/:category/:cnt/nextnavigation", (req, res) => {
     let countArticles = Number(req.params.cnt);
-    titleModel.find({navigation: req.params.category}).skip(countArticles).limit(8).exec((err, articles) => {
+    titleModel.find({navigation: req.params.category}).skip(countArticles).limit(4).exec((err, articles) => {
         res.json(articles)
     })
 })
