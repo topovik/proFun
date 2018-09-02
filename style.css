@@ -23,24 +23,10 @@ body,
 
 .MainSliderContainer {
     width: 1450px;
+    max-height: 244px;
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-}
-
-.MainSliderOne {
-    display: block;
-}
-
-.MainSliderTwo {
-    display: none;
-}
-
-.MainSliderThree {
-    display: none;
-}
-
-.MainSliderFour {
-    display: none;
 }
 
 .articleSliderContainer div span, .articleSliderNeedSeeContainer div span, 
@@ -106,14 +92,16 @@ body,
 }
 
 .articleSliderContainer {
-    width: 362px;
+    width: 100%;
     position: relative;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
 
 .MainSliderImg {
     display: grid;
     cursor: pointer;
-    width: 362px;
+    width: 100%;
 }
 
 .header {
@@ -793,19 +781,17 @@ body,
     font: 16px/20px 'Roboto Condensed', sans-serif;
 }
 
-.SliderNeedSeeTwo {
-    display: none;
-}
-
 .articleSliderNeedSeeContainer {
     position: relative;
-    width: 359px;
+    width: 100%;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
 
 .articleSliderNeedSeeContainer img {
     display: grid;
     cursor: pointer;
-    width: 359px;
+    width: 100%;
 }
 
 .IndexArticlesContainer {
@@ -1035,7 +1021,6 @@ body,
 }
 
 .SearchSlider {
-    display: grid;
     grid-area: searchSlider;
     position: relative;
     text-align: center;
@@ -1046,7 +1031,7 @@ body,
     text-align: center;
     position: relative;
     width: 100%;
-    border-bottom: 3px solid white;
+    border-bottom: 1px solid white;
 }
 
 .articleSliderSearchContainer img {
@@ -1397,14 +1382,17 @@ body,
 
     .MainSliderContainer {
         width: 1300px;
+        max-height: 215px;
     }
 
     .articleSliderContainer img {
-        width: 324px;
+        width: 100%;
     }
 
     .articleSliderContainer {
-        width: 324px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .articleSliderContainer div h3 {
@@ -1445,16 +1433,14 @@ body,
         width: 1300px;
     }
 
-    .SliderNeedSeeTwo {
-        display: none;
-    }
-
     .articleSliderNeedSeeContainer img {
-        width: 323px;
+        width: 100%;
     }
 
     .articleSliderNeedSeeContainer {
-        width: 323px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .articleSliderNeedSeeContainer div h3 {
@@ -1505,14 +1491,16 @@ body,
 
     .MainSliderContainer {
         width: 1100px;
+        max-height: 185px;
     }
 
     .articleSliderContainer img {
-        width: 274px;
+        width: 100%;
     }
 
     .articleSliderContainer {
-        width: 274px;
+        width: 100%;
+        border: 1px solid white;
     }
 
     .articleSliderContainer div {
@@ -1567,20 +1555,14 @@ body,
         width: 1100px;
     }
 
-    .SliderNeedSeeOne {
-        display: none;
-    }
-
-    .SliderNeedSeeTwo {
-        display: block;
-    }
-
     .articleSliderNeedSeeContainer img {
-        width: 410px;
+        width: 100%;
     }
 
     .articleSliderNeedSeeContainer {
-        width: 410px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .articleSliderNeedSeeContainer div h3 {
@@ -1667,41 +1649,17 @@ body,
 
     .MainSliderContainer {
         width: 950px;
+        max-height: 210px;
     }
 
     .articleSliderContainer img {
-        width: 315px;
+        width: 100%;
     }
 
     .articleSliderContainer {
-        width: 315px;
-    }
-
-    .MainSliderOne {
-        display: none;
-    }
-    
-    .MainSliderTwo {
-        display: block;
-        grid-area: two;
-    }
-
-    .MainSliderThree {
-        display: block;
-        grid-area: three;
-    }
-
-    .MainSliderFour {
-        display: block;
-        grid-area: four;
-    }
-
-    .MainSliderContainerSection {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto;
-        grid-template-areas:
-        "two three four"
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .MainAsideContainer {
@@ -1746,20 +1704,14 @@ body,
         grid-template-rows: 11vh auto auto auto 15vh;
     }
 
-    .SliderNeedSeeTwo {
-        display: none;
-    }
-
-    .SliderNeedSeeOne {
-        display: block;
-    }
-
     .articleSliderNeedSeeContainer img {
-        width: 319px;
+        width: 100%;
     }
 
     .articleSliderNeedSeeContainer {
-        width: 319px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .Tags p {
@@ -1851,41 +1803,17 @@ body,
 
     .MainSliderContainer {
         width: 750px;
+        max-height: 250px;
     }
 
     .articleSliderContainer img {
-        width: 373px;
+        width: 100%;
     }
 
     .articleSliderContainer {
-        width: 373px;
-    }
-
-    .MainSliderOne {
-        display: none;
-    }
-    
-    .MainSliderTwo {
-        display: block;
-        grid-area: two;
-    }
-
-    .MainSliderThree {
-        display: block;
-        grid-area: three;
-    }
-
-    .MainSliderFour {
-        display: none;
-        grid-area: four;
-    }
-
-    .MainSliderContainerSection {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
-        grid-template-areas:
-        "two three"
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .MainAsideContainer {
@@ -1928,20 +1856,14 @@ body,
         grid-template-rows: 5.5vh auto auto auto 10vh;
     }
 
-    .SliderNeedSeeOne {
-        display: none;
-    }
-
-    .SliderNeedSeeTwo {
-        display: block;
-    }
-
     .articleSliderNeedSeeContainer img {
-        width: 378px;
+        width: 100%;
     }
 
     .articleSliderNeedSeeContainer {
-        width: 378px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .Tags p {
@@ -1964,11 +1886,12 @@ body,
     }
 
     .articleSliderSearchContainer img {
-        width: 262px;
+        width: 100%;
     }
 
     .articleSliderSearchContainer {
-        width: 262px;
+        width: 100%;
+        border-bottom: 1px solid white;
     }
 
     .searchContainer h3 {
@@ -2098,42 +2021,18 @@ body,
 
     .MainSliderContainer {
         width: 600px;
+        max-height: 200px;
     }
 
     .articleSliderContainer img {
         display: grid;
-        width: 299px;
+        width: 100%;
     }
 
     .articleSliderContainer {
-        width: 299px;
-    }
-
-    .MainSliderOne {
-        display: none;
-    }
-    
-    .MainSliderTwo {
-        display: block;
-        grid-area: two;
-    }
-
-    .MainSliderThree {
-        display: block;
-        grid-area: three;
-    }
-
-    .MainSliderFour {
-        display: none;
-        grid-area: four;
-    }
-
-    .MainSliderContainerSection {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
-        grid-template-areas:
-        "three two"
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .MainAsideContainer {
@@ -2180,20 +2079,14 @@ body,
         grid-template-rows: 45px auto auto auto 10vh;
     }
 
-    .SliderNeedSeeOne {
-        display: none;
-    }
-
-    .SliderNeedSeeTwo {
-        display: block;
-    }
-
     .articleSliderNeedSeeContainer img {
-        width: 302px;
+        width: 100%;
     }
 
     .articleSliderNeedSeeContainer {
-        width: 302px;
+        width: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
     }
 
     .Tags p {
@@ -2358,6 +2251,7 @@ body,
 
     .MainSliderContainer {
         width: 94vw;
+        max-height: 380px;
     }
 
     .articleSliderContainer img {
@@ -2388,33 +2282,6 @@ body,
         align-self: end;
         margin-bottom: 8px;
         justify-self: end;
-    }
-
-    .MainSliderOne {
-        display: none;
-    }
-    
-    .MainSliderTwo {
-        display: block;
-        grid-area: two;
-    }
-
-    .MainSliderThree {
-        display: none;
-        grid-area: three;
-    }
-
-    .MainSliderFour {
-        display: none;
-        grid-area: four;
-    }
-
-    .MainSliderContainerSection {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto;
-        grid-template-areas:
-        "two"
     }
 
     .MainAsideContainer {
@@ -2465,12 +2332,8 @@ body,
         "indexArticlesContainer"
         "footer"
     }
-    
-    .SliderNeedSeeOne {
-        display: none;
-    }
 
-    .SliderNeedSeeTwo {
+    .SliderNeedSee {
         display: none;
     }
 

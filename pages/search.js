@@ -21,6 +21,7 @@ class Search extends Component {
             displayMenu: 2
         }
     }
+
     render() {
         const handleStateChange = (status) => {
             if (status.status === Sticky.STATUS_FIXED) {

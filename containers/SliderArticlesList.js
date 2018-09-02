@@ -1,11 +1,32 @@
 import React, { Component } from 'react'
 import SliderArticles from '../components/SliderArticles'
-import Carousel from 'nuka-carousel';
+import Siema from 'siema'
 import css from '../style.css'
 
 
 
 class SliderArticlesList extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        this.siema = new Siema({
+            perPage: {
+                320: 1,
+                615: 2,
+                800: 2,
+                970: 3,
+                1115: 4,
+                1320: 4,
+                1470: 4
+            },
+            duration: 250,
+            loop: true,
+        });
+        setInterval(() => this.siema.next(), 2000)
+      }
+
     render() {
         const sliderList = this.props.sliderArticles.map(t => {
             return <SliderArticles
@@ -19,71 +40,8 @@ class SliderArticlesList extends Component {
         })
         return (
             <div className={css.MainSliderContainerSection}>
-                <div className={css.MainSliderOne}>
-                    <Carousel slidesToShow={4} cellAlign="left" cellSpacing={3}
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        autoplay={true}
-                    >
-                        {sliderList}
-                    </Carousel>
-                </div>
-                <div className={css.MainSliderTwo}>
-                    <Carousel slidesToShow={1} cellAlign="left" vertical={true} 
-                        autoplayInterval={2300} swiping={true}
-                            renderCenterLeftControls={({ previousSlide }) => (
-                                <React.Fragment></React.Fragment>
-                            )}
-                            renderCenterRightControls={({ nextSlide }) => (
-                                <React.Fragment></React.Fragment>
-                            )}
-                            renderBottomCenterControls={({ goToSlide }) => (
-                                <React.Fragment></React.Fragment>
-                            )}
-                            autoplay={true}
-                            >
-                            {sliderList}
-                    </Carousel>
-                </div>
-                <div className={css.MainSliderThree}>
-                    <Carousel slidesToShow={1} cellAlign="left" vertical={true} swiping={true}
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        autoplay={true}
-                        >
-                        {sliderList}
-                    </Carousel>
-                </div>
-                <div className={css.MainSliderFour}>
-                    <Carousel slidesToShow={1} cellAlign="left" vertical={true} 
-                    autoplayInterval={2300} swiping={true}
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        autoplay={true}
-                        >
-                        {sliderList}
-                    </Carousel>
+                <div className="siema">
+                    {sliderList}
                 </div>
             </div>
         )

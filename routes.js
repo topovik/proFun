@@ -62,7 +62,6 @@ router.get("/api/:id/article", (req, res) => {
         })
 
     })
-
 })
 
 router.get("/api/:lat/:lon/weather", (req, res) => {

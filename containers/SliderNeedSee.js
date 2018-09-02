@@ -1,9 +1,29 @@
 import React, { Component } from 'react'
 import SliderArticlesNeedSee from '../components/SliderArticlesNeedSee'
-import Carousel from 'nuka-carousel'
+import Siema from 'siema'
 import css from '../style.css'
 
 class SliderNeedSee extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        this.siema = new Siema({
+            perPage: {
+                320: 1,
+                615: 2,
+                800: 2,
+                970: 3,
+                1115: 2,
+                1320: 3,
+                1470: 3
+            },
+            duration: 250,
+            loop: true,
+        });
+        setInterval(() => this.siema.next(), 2000)
+    }
     render() {
         const sliderList = this.props.sliderArticles.map(t => {
             return <SliderArticlesNeedSee
@@ -17,40 +37,10 @@ class SliderNeedSee extends Component {
         })
         return (
             <React.Fragment>
-                <div className={css.SliderNeedSeeOne}>
-                    <Carousel slidesToShow={3} cellAlign="left" autoplay={true}
-                        cellSpacing={13}
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        >
-                        {sliderList}
-                    </Carousel>
-                </div>
-                <div className={css.SliderNeedSeeTwo}>
-                    <Carousel slidesToShow={2} cellAlign="left" autoplay={true}
-                        cellSpacing={10}
-                        renderCenterLeftControls={({ previousSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderCenterRightControls={({ nextSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        renderBottomCenterControls={({ goToSlide }) => (
-                            <React.Fragment></React.Fragment>
-                        )}
-                        >
-                        {sliderList}
-                    </Carousel>
+                <div className="siema">
+                    {sliderList}
                 </div>
             </React.Fragment>
-
         )
     }
 }
