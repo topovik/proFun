@@ -3,8 +3,6 @@ import SliderArticles from '../components/SliderArticles'
 import Siema from 'siema'
 import css from '../style.css'
 
-
-
 class SliderArticlesList extends Component {
     constructor(props) {
         super(props)
@@ -37,13 +35,14 @@ class SliderArticlesList extends Component {
                 count={t[0].count}
                 navigation={t[0].navigation}
             />
-        })
+        })          
+        
         return (
-            <div className={css.MainSliderContainerSection}>
+            <React.Fragment>
                 <div className="siema">
                     {sliderList}
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }

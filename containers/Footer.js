@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <React.Fragment>
             <Link prefetch href={{ pathname: '/'}}>
-                <img src="/static/proFun_Logo_footer.png" alt="logo"/>
+                <img src="/static/weather/proFun_Logo_footer.png" alt="logo"/>
             </Link>
             <Social />
             <p>© proFun.app 2018. All rights reserved.</p>

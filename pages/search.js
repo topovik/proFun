@@ -94,7 +94,7 @@ class Search extends Component {
 Search.getInitialProps = async (req) => {
 
     let searchText = String(req.query.text.toLowerCase());
-    const data = await fetch(`http://localhost:3000/api/search`)
+    const data = await fetch(`https://profun/api/search`)
         .then(response => response.json())
         .then(item => item.map(object => {
             return {
@@ -112,7 +112,7 @@ Search.getInitialProps = async (req) => {
             }
         })
 
-        const dataAside = await fetch('http://localhost:3000/api/asidearticles')
+        const dataAside = await fetch('https://profun/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -124,7 +124,7 @@ Search.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
+        const dataSlider = await fetch('https://profun/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{

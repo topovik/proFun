@@ -5,7 +5,7 @@ const fetch = require('isomorphic-unfetch');
 const fs = require('fs');
 
 router.get("/api/mainarticles", (req, res) => {
-    titleModel.find({}).limit(8).exec((err, articles) => {
+    titleModel.find({}).sort("-sort").limit(4).exec((err, articles) => {
         res.json(articles)
     })
 })
@@ -24,7 +24,7 @@ router.get("/api/asidearticles", (req, res) => {
 
 router.get("/api/:cnt/nextarticles", (req, res) => {
     let countArticles = Number(req.params.cnt);
-    titleModel.find({}).skip(countArticles).limit(4).exec((err, articles) => {
+    titleModel.find({}).sort('-sort').skip(countArticles).limit(4).exec((err, articles) => {
         res.json(articles)
     })
 })

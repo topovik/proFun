@@ -99,7 +99,7 @@ class Navigation extends Component {
     async onClick() {
         let countArticles = this.props.navigation.length;
         let navigationTxt = this.props.backNavigation
-        let tt = await fetch(`http://localhost:3000/api/${navigationTxt}/${countArticles}/nextnavigation`)
+        let tt = await fetch(`https://profun/api/${navigationTxt}/${countArticles}/nextnavigation`)
             .then(response => response.json())
             .then(item => item.map(object => {
                 return [{
@@ -117,7 +117,7 @@ class Navigation extends Component {
 
 Navigation.getInitialProps = async (req) => {
     let navigationText = String(req.query.text);
-    const data = await fetch(`http://localhost:3000/api/${navigationText}/navigation`)
+    const data = await fetch(`https://profun/api/${navigationText}/navigation`)
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -129,7 +129,7 @@ Navigation.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataAside = await fetch('http://localhost:3000/api/asidearticles')
+        const dataAside = await fetch('https://profun/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -141,7 +141,7 @@ Navigation.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
+        const dataSlider = await fetch('https://profun/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{

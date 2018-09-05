@@ -94,7 +94,7 @@ class Article extends Component {
 
 Article.getInitialProps = async (req) => {
     let idArticle = req.query.id
-    const data = await fetch(`http://localhost:3000/api/${idArticle}/article`)
+    const data = await fetch(`https://profun/api/${idArticle}/article`)
         .then(response => response.json())
         .then(t => t.map(obj => {
             return [{
@@ -167,7 +167,7 @@ Article.getInitialProps = async (req) => {
             }]
         }))
 
-    const dataAside = await fetch('http://localhost:3000/api/asidearticles')
+    const dataAside = await fetch('https://profun/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -179,7 +179,7 @@ Article.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
+        const dataSlider = await fetch('https://profun/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{

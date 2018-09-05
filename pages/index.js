@@ -95,7 +95,7 @@ class Index extends Component {
 
     async onClick() {
         let countArticles = this.state.art.length;
-        let tt = await fetch(`http://localhost:3000/api/${countArticles}/nextarticles`)
+        let tt = await fetch(`https://profun/api/${countArticles}/nextarticles`)
             .then(response => response.json())
             .then(item => item.map(object => {
                 return [{
@@ -112,7 +112,7 @@ class Index extends Component {
 }
 
 Index.getInitialProps = async () => {
-    const data = await fetch('http://localhost:3000/api/mainarticles')
+    const data = await fetch('https://profun/api/mainarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -124,7 +124,7 @@ Index.getInitialProps = async () => {
             }]
         }))
 
-    const dataAside = await fetch('http://localhost:3000/api/asidearticles')
+    const dataAside = await fetch('https://profun/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -136,7 +136,7 @@ Index.getInitialProps = async () => {
             }]
         }))
 
-    const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
+    const dataSlider = await fetch('https://profun/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{

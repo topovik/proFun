@@ -25,8 +25,8 @@ class NavigationForm extends Component {
 
         let logoDisplay;
         this.props.logoScroll === false
-            ? logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '0', zIndex: '-100'}} src="/static/proFun_Logo.png" alt="logo" /></Link>
-            : logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '1' }} src="/static/proFun_Logo.png" alt="logo" /></Link>
+            ? logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '0', zIndex: '-100'}} src="/static/weather/proFun_Logo.png" alt="logo" /></Link>
+            : logoDisplay = <Link prefetch href={{ pathname: '/' }}><img style={{ opacity: '1' }} src="/static/weather/proFun_Logo.png" alt="logo" /></Link>
         return (
             <div className={css.NavigationSectionContainer}>
                 <div className={css.NavigationForm}>

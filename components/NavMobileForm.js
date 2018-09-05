@@ -18,14 +18,14 @@ class NavMobileForm extends Component {
             ? mobileMenu = <nav className={css.NavMobileForm} style={{transform: "translateX(-100%)", position: "fixed"}}>
             <SearchMobileForm onClickHideMenu={this.props.onClickHideMenu}/>
             <Link prefetch href={{ pathname: '/'}}>
-                <img className={css.LogoMobileMenu} src="/static/proFun_Logo.png" alt="logo"/>
+                <img className={css.LogoMobileMenu} src="/static/weather/proFun_Logo.png" alt="logo"/>
             </Link>
             <div className={css.NavigationMobile} onClick={() => {this.props.onClickHideMenu(this.state.hideMenu)}}>
                 <Link prefetch href={{ pathname: '/' }}>
                     <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
                 </Link>
                 <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }}>
-                        <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
+                    <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
                 </Link>
                 <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }}>
                     <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
@@ -47,7 +47,7 @@ class NavMobileForm extends Component {
             : mobileMenu = <nav className={css.NavMobileForm} style={{transform: "translateX(0)", position: "fixed"}}>
             <SearchMobileForm onClickHideMenu={this.props.onClickHideMenu}/>
             <Link prefetch href={{ pathname: '/'}}>
-                <img className={css.LogoMobileMenu} src="/static/proFun_Logo.png" alt="logo"/>
+                <img className={css.LogoMobileMenu} src="/static/weather/proFun_Logo.png" alt="logo"/>
             </Link>
             <div className={css.NavigationMobile} onClick={() => {this.props.onClickHideMenu(this.state.hideMenu)}}>
                 <Link prefetch href={{ pathname: '/' }}>

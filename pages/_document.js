@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
             />
           <title>proFun.app</title>
           <meta charSet="utf-8"/>
-          <meta httpEquiv="content-type" content="text/html; charset=utf-8"/>
+          <meta httpEquiv="content-type" content="text/html"/>
           <link rel="icon" type="image/x-icon" href="/static/weather/favicon.ico" />
           <meta name="description" content="proFun.app - лучшие статьи, подборки, угарные треши со всей сети! Есть что посмотреть, почитать и поугарать. Наша задача - Ваше веселое времяпровождение"/>
           <meta name="keywords" content="Лучшее в сети, свежие новости, лучшие подборки, лучшие топы, новые фильмы, лучшая музыка, бизнес, новые игры, it, финансы"/>
