@@ -8,6 +8,7 @@ class SliderArticlesList extends Component {
         super(props)
     }
 
+
     componentDidMount() {
         this.siema = new Siema({
             perPage: {
@@ -15,7 +16,7 @@ class SliderArticlesList extends Component {
                 615: 2,
                 800: 2,
                 970: 3,
-                1115: 4,
+                1115: 3,
                 1320: 4,
                 1470: 4
             },
@@ -36,7 +37,7 @@ class SliderArticlesList extends Component {
                 navigation={t[0].navigation}
             />
         })          
-        
+
         return (
             <React.Fragment>
                 <div className="siema">

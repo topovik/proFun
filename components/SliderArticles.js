@@ -97,12 +97,14 @@ class SliderArticles extends Component {
 
         return (
             <React.Fragment>
-                <Link prefetch href={{ pathname: '/article', query: { id: this.props.item.id } }}>
-                    <div className={css.articleSliderContainer}>
-                        {backColor}
-                        <img className={css.MainSliderImg} src={this.props.images} alt={this.props.title} />
-                        {backHover}
-                    </div>
+                <Link prefetch href={{ pathname: '/article', query: { id: this.props.item.id } }} passHref>
+                    <a>
+                        <div className={css.articleSliderContainer}>
+                            {backColor}
+                            <img className={css.MainSliderImg} src={this.props.images} alt={this.props.title} />
+                            {backHover}
+                        </div>
+                    </a>
                 </Link>
             </React.Fragment>
 

@@ -19,8 +19,13 @@ class Index extends Component {
         this.state = {
             art: this.props.articles,
             logoScroll: false,
-            displayMenu: 2
+            displayMenu: 2,
+            sliderDisplay: false
         }
+    }
+
+    componentDidMount() {
+        this.setState({sliderDisplay: true})
     }
 
     render() {
@@ -31,9 +36,21 @@ class Index extends Component {
                 this.setState({logoScroll: false})
             }
         }
+
+        let carousel;
+        this.state.sliderDisplay === true
+        ? carousel = <div className={css.MainSliderContainer}>
+                        <SliderArticlesList sliderArticles={this.props.sliderArticles} />
+                    </div>
+
+        : carousel = <img className={css.preloaderImg} src="./static/weather/preloader.gif" alt="preloader"/>
         return (
             <div className={css.container}>
                 <header className={css.header}>
+                    <div className={css.SocialContainer}>
+                        <div className={css.SocialIconsContainer}>
+                        </div>
+                    </div>  
                     <div className={css.headerContainer}>
                         <Header />
                         <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
@@ -47,9 +64,7 @@ class Index extends Component {
                     </Sticky>
                 </nav> 
                 <section className={css.MainSlider}>
-                    <div className={css.MainSliderContainer}>
-                        <SliderArticlesList sliderArticles={this.props.sliderArticles} />
-                    </div>
+                    {carousel}
                 </section>
                 <div className={css.IndexContainer}>
                     <div className={css.MainAsideContainer}>
@@ -80,7 +95,6 @@ class Index extends Component {
                     </div>
                 </footer>
             </div>
-
         )
     }
 
@@ -95,7 +109,7 @@ class Index extends Component {
 
     async onClick() {
         let countArticles = this.state.art.length;
-        let tt = await fetch(`https://profun/api/${countArticles}/nextarticles`)
+        let tt = await fetch(`http://localhost:3000/api/${countArticles}/nextarticles`)
             .then(response => response.json())
             .then(item => item.map(object => {
                 return [{
@@ -112,7 +126,7 @@ class Index extends Component {
 }
 
 Index.getInitialProps = async () => {
-    const data = await fetch('https://profun/api/mainarticles')
+    const data = await fetch('http://localhost:3000/api/mainarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -124,7 +138,7 @@ Index.getInitialProps = async () => {
             }]
         }))
 
-    const dataAside = await fetch('https://profun/api/asidearticles')
+    const dataAside = await fetch('http://localhost:3000/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -136,7 +150,7 @@ Index.getInitialProps = async () => {
             }]
         }))
 
-    const dataSlider = await fetch('https://profun/api/sliderarticles')
+    const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{

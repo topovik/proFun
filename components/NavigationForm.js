@@ -30,26 +30,40 @@ class NavigationForm extends Component {
         return (
             <div className={css.NavigationSectionContainer}>
                 <div className={css.NavigationForm}>
-                    <Link prefetch href={{ pathname: '/' }}>
-                        <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                    <Link prefetch href={{ pathname: '/' }} passHref>
+                        <a>
+                            <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }}>
-                        <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }} passHref>
+                        <a style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>
+                            <h2>Auto</h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }}>
-                        <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }} passHref>
+                        <a style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>
+                            <h2>Finance</h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }}>
-                        <h2 style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>Sport</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }} passHref>
+                        <a style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>
+                            <h2>Sport</h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }}>
-                        <h2 style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>Games</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }} passHref>
+                        <a style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>
+                            <h2>Games</h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }}>
-                        <h2 style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>IT</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }} passHref>
+                        <a style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>
+                            <h2>IT</h2>
+                        </a>
                     </Link>
-                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }}>
-                        <h2 style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>Other</h2>
+                    <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }} passHref>
+                        <a style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>
+                            <h2>Other</h2>
+                        </a>
                     </Link>
                 </div>
                 <div className={css.LogoNavigation}>
@@ -63,20 +77,6 @@ class NavigationForm extends Component {
                     </div>
                     <div className={css.SocialIconsNavigation}>
                         <ul>
-                            <a href="#" target="_blank">
-                                <li className={css.youtubeNavigation}>
-                                    <i className="fa fa-youtube fa-sm">
-                                        <span>YouTube</span>
-                                    </i>
-                                </li>
-                            </a>
-                            <a href="#" target="_blank">
-                                <li className={css.twitterNavigation}>
-                                    <i className="fa fa-twitter fa-sm">
-                                        <span>Twitter</span>
-                                    </i>
-                                </li>
-                            </a>
                             <a href="#" target="_blank">
                                 <li className={css.instagramNavigation}>
                                     <i className="fa fa-instagram fa-sm">

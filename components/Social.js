@@ -5,12 +5,6 @@ class Social extends Component {
     render() {
         return (
             <div className={css.SocialIcons}>
-                <div className={css.youtube}>
-                    <a href="#" target="_blank"><i className="fa fa-youtube fa-lg"></i></a>
-                </div>
-                <div className={css.twitter}>
-                    <a href="#" target="_blank"><i className="fa fa-twitter fa-lg"></i></a>
-                </div>
                 <div className={css.instagram}>
                     <a href="#" target="_blank"><i className="fa fa-instagram fa-lg"></i></a>
                 </div>

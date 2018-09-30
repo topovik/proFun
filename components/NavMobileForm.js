@@ -21,26 +21,40 @@ class NavMobileForm extends Component {
                 <img className={css.LogoMobileMenu} src="/static/weather/proFun_Logo.png" alt="logo"/>
             </Link>
             <div className={css.NavigationMobile} onClick={() => {this.props.onClickHideMenu(this.state.hideMenu)}}>
-                <Link prefetch href={{ pathname: '/' }}>
-                    <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                <Link prefetch href={{ pathname: '/' }} passHref>
+                    <a>
+                        <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }}>
-                    <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }}>
-                    <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }}>
-                    <h2 style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>Sport</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>Sport</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }}>
-                    <h2 style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>Games</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>Games</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }}>
-                    <h2 style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>IT</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>IT</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }}>
-                    <h2 style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>Other</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>Other</h2>
+                    </a>
                 </Link>
             </div>
         </nav>
@@ -50,26 +64,40 @@ class NavMobileForm extends Component {
                 <img className={css.LogoMobileMenu} src="/static/weather/proFun_Logo.png" alt="logo"/>
             </Link>
             <div className={css.NavigationMobile} onClick={() => {this.props.onClickHideMenu(this.state.hideMenu)}}>
-                <Link prefetch href={{ pathname: '/' }}>
-                    <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                <Link prefetch href={{ pathname: '/' }} passHref>
+                    <a>
+                        <h2><i className="fa fa-home fa-sm" aria-hidden="true"></i></h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }}>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'auto' } }} passHref>
+                    <a>
                         <h2 style={this.props.backNavigation === "auto" ? {background: "rgb(206, 0, 0)"} : {}}>Auto</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }}>
-                    <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'finance' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "finance" ? {background: "rgb(135, 184, 0)"} : {}}>Finance</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }}>
-                    <h2 style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>Sport</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'sport' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "sport" ? {background: "rgb(185, 121, 0)"} : {}}>Sport</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }}>
-                    <h2 style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>Games</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'games' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "games" ? {background: "rgb(0, 110, 173)"} : {}}>Games</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }}>
-                    <h2 style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>IT</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'it' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "it" ? {background: "rgb(0, 95, 0)"} : {}}>IT</h2>
+                    </a>
                 </Link>
-                <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }}>
-                    <h2 style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>Other</h2>
+                <Link prefetch href={{ pathname: '/navigation', query: { text: 'other' } }} passHref>
+                    <a>
+                        <h2 style={this.props.backNavigation === "other" ? {background: "rgb(184, 133, 163)"} : {}}>Other</h2>
+                    </a>
                 </Link>
             </div>
         </nav>

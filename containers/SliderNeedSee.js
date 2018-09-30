@@ -14,7 +14,7 @@ class SliderNeedSee extends Component {
                 320: 1,
                 615: 2,
                 800: 2,
-                970: 3,
+                970: 2,
                 1115: 2,
                 1320: 3,
                 1470: 3

@@ -13,7 +13,6 @@ import NavMobileForm from '../components/NavMobileForm'
 import Sticky from 'react-stickynode'
 import css from '../style.css'
 
-
 class Article extends Component {
     constructor(props) {
         super(props)
@@ -34,6 +33,10 @@ class Article extends Component {
         return (
             <div className={css.pageContainerNeedSee}>
                 <header className={css.header}>
+                    <div className={css.SocialContainer}>
+                        <div className={css.SocialIconsContainer}>
+                        </div>
+                    </div>  
                     <div className={css.headerContainer}>
                         <Header />
                         <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
@@ -94,12 +97,15 @@ class Article extends Component {
 
 Article.getInitialProps = async (req) => {
     let idArticle = req.query.id
-    const data = await fetch(`https://profun/api/${idArticle}/article`)
+    const data = await fetch(`http://localhost:3000/api/${idArticle}/article`)
         .then(response => response.json())
         .then(t => t.map(obj => {
             return [{
                 id: obj.id,
                 title: obj.title,
+                description: obj.description,
+                ogImgUrl: obj.ogImgUrl,
+                keywords: obj.keywords,
                 text: [{
                     p1: obj.text.t1,
                     p2: obj.text.t2,
@@ -162,12 +168,11 @@ Article.getInitialProps = async (req) => {
                     p59: obj.text.t59,
                     p60: obj.text.t60,
                     tags: obj.text.tags
-
                 }]
             }]
         }))
 
-    const dataAside = await fetch('https://profun/api/asidearticles')
+    const dataAside = await fetch('http://localhost:3000/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -179,7 +184,7 @@ Article.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataSlider = await fetch('https://profun/api/sliderarticles')
+        const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -194,7 +199,12 @@ Article.getInitialProps = async (req) => {
     return {
         dataArticle: data,
         asideArticles: dataAside,
-        sliderArticles: dataSlider
+        sliderArticles: dataSlider,
+        title: data[0][0].title,
+        description: data[0][0].description,
+        keywords: data[0][0].keywords,
+        ogImgUrl: `https://profun.app${data[0][0].ogImgUrl}`,
+        ogUrl: `https://profun.app/article?id=${data[0][0].id}`
     }
 }
 

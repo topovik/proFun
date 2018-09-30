@@ -4,6 +4,7 @@ import SearchList from '../containers/SearchList'
 import SearchForm from '../components/SearchForm'
 import NavigationForm from '../components/NavigationForm'
 import Header from '../containers/Header'
+import Social from '../components/Social'
 import Footer from '../containers/Footer'
 import AsideArticlesList  from '../containers/AsideArticlesList'
 import SearchSliderArticlesList from '../containers/SearchSliderArticlesList'
@@ -33,6 +34,10 @@ class Search extends Component {
         return (
             <div className={css.pageSearchArticles}>
                 <header className={css.header}>
+                    <div className={css.SocialContainer}>
+                        <div className={css.SocialIconsContainer}>
+                        </div>
+                    </div>  
                     <div className={css.headerContainer}>
                         <Header />
                         <div className={css.MenuButton} style={{color: "grey"}} onClick={this.onClickMobile = this.onClickMobile.bind(this)}><i className="fa fa-th fa-2x" aria-hidden="true"></i></div>
@@ -94,7 +99,7 @@ class Search extends Component {
 Search.getInitialProps = async (req) => {
 
     let searchText = String(req.query.text.toLowerCase());
-    const data = await fetch(`https://profun/api/search`)
+    const data = await fetch(`http://localhost:3000/api/search`)
         .then(response => response.json())
         .then(item => item.map(object => {
             return {
@@ -112,7 +117,7 @@ Search.getInitialProps = async (req) => {
             }
         })
 
-        const dataAside = await fetch('https://profun/api/asidearticles')
+        const dataAside = await fetch('http://localhost:3000/api/asidearticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
@@ -124,7 +129,7 @@ Search.getInitialProps = async (req) => {
             }]
         }))
 
-        const dataSlider = await fetch('https://profun/api/sliderarticles')
+        const dataSlider = await fetch('http://localhost:3000/api/sliderarticles')
         .then(response => response.json())
         .then(item => item.map(object => {
             return [{
